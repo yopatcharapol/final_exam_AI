@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Knowledge Portal & Quiz Hub | สรุปวิชาปัญญาประดิษฐ์ บทที่ 6 - 10</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-brand-badge">AI</span>
+        <span>AI Study Portal</span>
+      </a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html" class="active">หน้าแรก</a></li>
+        <li class="nav-item"><a href="chapter06.html">บทที่ 6 (ML)</a></li>
+        <li class="nav-item"><a href="chapter07.html">บทที่ 7 (Tree)</a></li>
+        <li class="nav-item"><a href="chapter08.html">บทที่ 8 (ANN)</a></li>
+        <li class="nav-item"><a href="chapter09.html">บทที่ 9 (Modern AI)</a></li>
+        <li class="nav-item"><a href="chapter10.html">บทที่ 10 (Ethics)</a></li>
+      </ul>
+      <div class="nav-controls">
+        <button id="theme-toggle-btn" class="btn-icon" title="เปลี่ยนธีม">☀️</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-wrapper">
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero-tag">✨ ศูนย์การเรียนรู้และการสอบจำลองวิชา AI (บทที่ 6 - 10)</div>
+      <h1 class="hero-title">
+        สรุปเนื้อหาเจาะลึก &amp; <span class="hero-gradient-text">คลังข้อสอบแบบอินเทอร์แอคทีฟ</span>
+      </h1>
+      <p class="hero-subtitle">
+        รวบรวมแก่นความรู้สำคัญครบ 5 บท ตั้งแต่รากฐาน Machine Learning, โครงสร้าง Decision Tree, กลไก Neural Networks, ยุคใหม่ Modern AI &amp; Diffusion Models จนถึง จริยธรรมและธรรมาภิบาล AI (UNESCO &amp; EIA) พร้อมแบบทดสอบ 50 ข้อพร้อมตรวจคำตอบทันที!
+      </p>
+      
+      <!-- Search & Filter Bar -->
+      <div style="max-width: 600px; margin: 0 auto 1.5rem auto; position: relative;">
+        <input 
+          type="text" 
+          id="portal-search-input" 
+          placeholder="🔍 ค้นหาหัวข้อ เช่น Gini, CNN, Diffusion, UNESCO, Confusion Matrix..." 
+          style="width: 100%; padding: 0.85rem 1.25rem; border-radius: var(--radius-full); border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-primary); font-family: inherit; font-size: 0.95rem; outline: none; box-shadow: var(--shadow-sm);"
+        >
+      </div>
+
+      <div class="hero-actions">
+        <a href="#mega-quiz-section" class="btn btn-primary">
+          📝 ทำข้อสอบรวมมิตร 50 ข้อ (Mega Exam)
+        </a>
+        <a href="#chapters-overview" class="btn btn-secondary">
+          📚 เลือกอ่านสรุปรายบท
+        </a>
+      </div>
+    </header>
+
+    <!-- Chapter Grid Section -->
+    <section id="chapters-overview">
+      <div style="margin-bottom: 1.75rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h2 style="font-size: 1.6rem; font-weight: 700; color: var(--text-primary);">
+            📖 สารบัญสรุปเนื้อหาและแบบทดสอบท้ายบท
+          </h2>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">
+            เลือกบทเรียนที่ต้องการเพื่อเข้าสู่หน้าสรุปเนื้อหาฉบับสมบูรณ์และแบบทดสอบประจำบท
+          </p>
+        </div>
+      </div>
+
+      <div class="chapter-grid">
+        <!-- Chapter 6 Card -->
+        <article class="chapter-card" style="--card-color: var(--ch6-color);">
+          <div class="card-header-top">
+            <span class="card-badge">Chapter 06</span>
+            <span class="card-icon">⚙️</span>
+          </div>
+          <h3 class="card-title">การเรียนรู้ของเครื่อง (Machine Learning)</h3>
+          <p class="card-desc">
+            แนวคิด Traditional vs ML, 3 เสาหลัก (Supervised, Unsupervised, Reinforcement), ML Pipeline, การแบ่งชุดข้อมูล, Underfitting/Overfitting และตัวชี้วัดประสิทธิภาพ (Confusion Matrix, F1-Score, RMSE, Silhouette Score)
+          </p>
+          <div class="card-topics">
+            <span class="topic-pill">Supervised</span>
+            <span class="topic-pill">Overfitting</span>
+            <span class="topic-pill">Confusion Matrix</span>
+            <span class="topic-pill">Precision/Recall</span>
+          </div>
+          <div class="card-footer">
+            <a href="chapter06.html" class="btn btn-secondary btn-sm">📖 อ่านสรุป</a>
+            <a href="chapter06.html?tab=quiz" class="btn btn-primary btn-sm">🎯 ทำควิซ (10 ข้อ)</a>
+          </div>
+        </article>
+
+        <!-- Chapter 7 Card -->
+        <article class="chapter-card" style="--card-color: var(--ch7-color);">
+          <div class="card-header-top">
+            <span class="card-badge">Chapter 07</span>
+            <span class="card-icon">🌳</span>
+          </div>
+          <h3 class="card-title">ต้นไม้ตัดสินใจ (Decision Tree)</h3>
+          <p class="card-desc">
+            โครงสร้างโหนดรากและโหนดใบ, เกณฑ์วัดความไม่บริสุทธิ์ (Gini Impurity, Entropy, Information Gain), Decision Tree Regression, เทคนิคการตัดแต่งกิ่ง (Pre &amp; Post Pruning) และข้อดีจุดเด่น White-box
+          </p>
+          <div class="card-topics">
+            <span class="topic-pill">Root &amp; Leaf Node</span>
+            <span class="topic-pill">Gini Impurity</span>
+            <span class="topic-pill">Information Gain</span>
+            <span class="topic-pill">Pruning</span>
+          </div>
+          <div class="card-footer">
+            <a href="chapter07.html" class="btn btn-secondary btn-sm">📖 อ่านสรุป</a>
+            <a href="chapter07.html?tab=quiz" class="btn btn-primary btn-sm">🎯 ทำควิซ (10 ข้อ)</a>
+          </div>
+        </article>
+
+        <!-- Chapter 8 Card -->
+        <article class="chapter-card" style="--card-color: var(--ch8-color);">
+          <div class="card-header-top">
+            <span class="card-badge">Chapter 08</span>
+            <span class="card-icon">🧠</span>
+          </div>
+          <h3 class="card-title">โครงข่ายประสาทเทียม (Neural Networks)</h3>
+          <p class="card-desc">
+            โครงสร้างนิวรอนเทียม Weights, Bias, Activation Functions (Sigmoid, ReLU, Softmax, Tanh), ปัญหา XOR ของ Perceptron, โครงข่าย MLP, กลไก Backpropagation (Chain Rule) และ Gradient Descent
+          </p>
+          <div class="card-topics">
+            <span class="topic-pill">Weights &amp; Bias</span>
+            <span class="topic-pill">ReLU / Softmax</span>
+            <span class="topic-pill">MLP XOR</span>
+            <span class="topic-pill">Backpropagation</span>
+          </div>
+          <div class="card-footer">
+            <a href="chapter08.html" class="btn btn-secondary btn-sm">📖 อ่านสรุป</a>
+            <a href="chapter08.html?tab=quiz" class="btn btn-primary btn-sm">🎯 ทำควิซ (10 ข้อ)</a>
+          </div>
+        </article>
+
+        <!-- Chapter 9 Card -->
+        <article class="chapter-card" style="--card-color: var(--ch9-color);">
+          <div class="card-header-top">
+            <span class="card-badge">Chapter 09</span>
+            <span class="card-icon">🚀</span>
+          </div>
+          <h3 class="card-title">Modern AI &amp; Generative AI (Case Study)</h3>
+          <p class="card-desc">
+            การสกัดฟีเจอร์อัตโนมัติ, CNN (Local Receptive &amp; Max Pooling), ตระกูล GenAI (GANs, VAEs, Diffusion Denoising), เคสศึกษาฟิล์ม X-ray ทันตกรรม, Transformers (Self-Attention Q,K,V), Tokenization ภาษาไทย และ Prompt Engineering
+          </p>
+          <div class="card-topics">
+            <span class="topic-pill">CNN Pooling</span>
+            <span class="topic-pill">Diffusion Models</span>
+            <span class="topic-pill">Dental X-Ray</span>
+            <span class="topic-pill">Transformers</span>
+          </div>
+          <div class="card-footer">
+            <a href="chapter09.html" class="btn btn-secondary btn-sm">📖 อ่านสรุป</a>
+            <a href="chapter09.html?tab=quiz" class="btn btn-primary btn-sm">🎯 ทำควิซ (10 ข้อ)</a>
+          </div>
+        </article>
+
+        <!-- Chapter 10 Card -->
+        <article class="chapter-card" style="--card-color: var(--ch10-color);">
+          <div class="card-header-top">
+            <span class="card-badge">Chapter 10</span>
+            <span class="card-icon">⚖️</span>
+          </div>
+          <h3 class="card-title">จริยธรรมปัญญาประดิษฐ์ (AI Ethics &amp; Governance)</h3>
+          <p class="card-desc">
+            Responsible AI, หลักการ 10 มิติของ UNESCO, แหล่งที่มาของ Bias 4 แหล่ง (เคส Amazon), Transparency vs Explainability, การโจมตี Adversarial, การประเมินผลกระทบ EIA 3 ส่วน, เคสศึกษาคัดกรองผู้ป่วย รพ. และจริยธรรมการเขียนโค้ด
+          </p>
+          <div class="card-topics">
+            <span class="topic-pill">UNESCO 10</span>
+            <span class="topic-pill">4 Sources of Bias</span>
+            <span class="topic-pill">EIA Process</span>
+            <span class="topic-pill">Automation Bias</span>
+          </div>
+          <div class="card-footer">
+            <a href="chapter10.html" class="btn btn-secondary btn-sm">📖 อ่านสรุป</a>
+            <a href="chapter10.html?tab=quiz" class="btn btn-primary btn-sm">🎯 ทำควิซ (10 ข้อ)</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Comprehensive Mega Quiz Section -->
+    <section id="mega-quiz-section" style="margin-top: 3.5rem;">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <span class="hero-tag">🔥 Comprehensive Assessment</span>
+        <h2 style="font-size: 2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+          แบบทดสอบจำลองรวมมิตร 5 บท (50 ข้อ)
+        </h2>
+        <p style="color: var(--text-secondary); max-width: 650px; margin: 0 auto;">
+          ทดสอบความรู้ครบทุกประเด็นสำคัญตั้งแต่บทที่ 6 ถึง 10 พร้อมระบบบันทึกคะแนน ตรวจคำตอบทันที และแสดงเฉลยละเอียดทุกข้อ
+        </p>
+      </div>
+
+      <div id="mega-quiz-container"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-nav">
+      <a href="index.html">หน้าแรก</a>
+      <a href="chapter06.html">บทที่ 6 การเรียนรู้ของเครื่อง</a>
+      <a href="chapter07.html">บทที่ 7 ต้นไม้ตัดสินใจ</a>
+      <a href="chapter08.html">บทที่ 8 โครงข่ายประสาทเทียม</a>
+      <a href="chapter09.html">บทที่ 9 Modern AI &amp; Generative AI</a>
+      <a href="chapter10.html">บทที่ 10 จริยธรรมใน AI</a>
+    </div>
+    <p>สรุปและแบบทดสอบรายวิชาปัญญาประดิษฐ์ (Artificial Intelligence) • จัดทำขึ้นเพื่อการทบทวนและเตรียมสอบ</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/quiz_data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize 50-Question Mega Quiz on the index page
+      new QuizEngine('mega-quiz-container', QUIZ_DATABASE.allQuestions);
+    });
+  </script>
+</body>
+</html>

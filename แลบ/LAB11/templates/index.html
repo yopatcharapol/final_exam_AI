@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>OpenRouter Chat</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+
+        <div class="sidebar-header">
+            <h2>Chats</h2>
+
+            <button
+                id="new-chat-button"
+                onclick="createNewChat()"
+            >
+                + New Chat
+            </button>
+        </div>
+
+        <div
+            id="chat-list"
+            class="chat-list"
+        >
+            <!-- Chat history appears here -->
+        </div>
+
+    </aside>
+
+
+    <!-- Main Chat Area -->
+    <main class="chat-container">
+
+        <div
+            id="messages"
+            class="messages"
+        >
+            <div class="empty-message">
+                Select a chat or create a new one.
+            </div>
+        </div>
+
+
+        <div class="input-container">
+
+            <textarea
+                id="message-input"
+                placeholder="Type your message..."
+                rows="3"
+            ></textarea>
+
+            <button
+                id="send-button"
+                onclick="sendMessage()"
+            >
+                Send
+            </button>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="/static/app.js"></script>
+
+</body>
+</html>
+

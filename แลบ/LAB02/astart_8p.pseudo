@@ -1,0 +1,14 @@
+function a_star_search(initial_state):
+    visited = []
+
+    stack = [initial_state]
+    while stack not null:
+        if current == goal:
+                return get_solution(current)
+        else:
+            visited.add(current)
+            children = get_child(current)
+            for child in children:
+                    if child not in visited:
+                        stack.add(child)
+

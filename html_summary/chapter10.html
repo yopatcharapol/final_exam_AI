@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บทที่ 10: จริยธรรมในปัญญาประดิษฐ์ (AI Ethics &amp; Governance) | สรุปและแบบทดสอบ</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-brand-badge" style="background: var(--ch10-color);">10</span>
+        <span>AI Study Portal</span>
+      </a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html">หน้าแรก</a></li>
+        <li class="nav-item"><a href="chapter06.html">บทที่ 6 (ML)</a></li>
+        <li class="nav-item"><a href="chapter07.html">บทที่ 7 (Tree)</a></li>
+        <li class="nav-item"><a href="chapter08.html">บทที่ 8 (ANN)</a></li>
+        <li class="nav-item"><a href="chapter09.html">บทที่ 9 (Modern AI)</a></li>
+        <li class="nav-item"><a href="chapter10.html" class="active">บทที่ 10 (Ethics)</a></li>
+      </ul>
+      <div class="nav-controls">
+        <button id="theme-toggle-btn" class="btn-icon" title="เปลี่ยนธีม">☀️</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-wrapper">
+    <!-- Chapter Header -->
+    <header class="chapter-header">
+      <div class="breadcrumb">
+        <a href="index.html">หน้าแรก</a> <span>/</span>
+        <span>บทที่ 10</span> <span>/</span>
+        <span>จริยธรรมในปัญญาประดิษฐ์</span>
+      </div>
+      <div class="chapter-title-group">
+        <div>
+          <span class="card-badge" style="color: var(--ch10-color); border-color: var(--ch10-color);">AI Ethics &amp; Governance</span>
+          <h1 class="chapter-main-title">บทที่ 10: จริยธรรมในปัญญาประดิษฐ์ (Ethics in AI)</h1>
+          <p class="chapter-lead">
+            Responsible AI, กรอบจริยธรรม 10 มิติของ UNESCO, แหล่งกำเนิดความลำเอียง (Bias 4 แหล่ง), การโจมตีความมั่นคง AI, กระบวนการประเมินผลกระทบ EIA 3 ส่วน (ETDA), กรณีศึกษา AI โรงพยาบาล และแนวปฏิบัติสำหรับนักพัฒนาซอฟต์แวร์
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Tab Buttons -->
+    <div class="tab-container">
+      <button class="tab-btn active" data-tab="summary">📖 สรุปเนื้อหาเจาะลึก</button>
+      <button class="tab-btn" data-tab="quiz">🎯 แบบทดสอบท้ายบท (10 ข้อ)</button>
+    </div>
+
+    <!-- TAB 1: SUMMARY CONTENT -->
+    <div id="tab-summary-content" class="study-content">
+      <!-- Sidebar TOC -->
+      <aside class="study-sidebar">
+        <div class="sidebar-title">📑 หัวข้อในบทนี้</div>
+        <ul class="toc-list">
+          <li class="toc-item"><a href="#sec-10-1">1. ภาพรวม Responsible AI</a></li>
+          <li class="toc-item"><a href="#sec-10-2">2. จริยธรรม 10 มิติ (UNESCO)</a></li>
+          <li class="toc-item"><a href="#sec-10-3">3. ความเป็นธรรม &amp; แหล่งที่มาของ Bias</a></li>
+          <li class="toc-item"><a href="#sec-10-4">4. ความโปร่งใส &amp; ความปลอดภัย</a></li>
+          <li class="toc-item"><a href="#sec-10-5">5. กระบวนการประเมินผลกระทบ (EIA)</a></li>
+          <li class="toc-item"><a href="#sec-10-6">6. 🏥 เคสศึกษาคัดกรองผู้ป่วย รพ.</a></li>
+          <li class="toc-item"><a href="#sec-10-7">7. จริยธรรมการเขียนโค้ด (Developers)</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main Study Body -->
+      <div class="study-body">
+        <!-- Section 1 -->
+        <section id="sec-10-1" class="section-block" style="--ch-theme: var(--ch10-color);">
+          <h2 class="section-heading"><i>1.</i> ภาพรวม Responsible AI และกรอบกำกับดูแล</h2>
+          
+          <div class="callout callout-important">
+            <div class="callout-title">📌 Responsible AI (ปัญญาประดิษฐ์ที่รับผิดชอบ)</div>
+            <p>
+              ชุดหลักการและแนวปฏิบัติที่ทำให้การพัฒนาและประยุกต์ใช้ AI เกิดประโยชน์ต่อสังคมอย่างยั่งยืน โดยไม่ก่อให้เกิดอันตรายต่อบุคคล กลุ่มคน สังคม หรือสิ่งแวดล้อม<br>
+              <strong>"ความรับผิดชอบของ AI เริ่มตั้งแต่วันแรกที่คุณนิยามปัญหา ไม่ใช่หลังจากโมเดลสร้างเสร็จ"</strong>
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <div class="feature-box">
+              <div class="feature-box-title">🌐 ระดับสากล (UNESCO 2021)</div>
+              <p>คำแนะนำด้านจริยธรรมปัญญาประดิษฐ์ที่ได้รับการรับรองจาก <strong>194 ประเทศสมาชิกทั่วโลก</strong></p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title">🇹🇭 ประเทศไทย (ETDA / AIGPC)</div>
+              <p>จัดทำ <strong>คู่มือการประเมินผลกระทบทางจริยธรรมปัญญาประดิษฐ์ (EIA)</strong> เพื่อเป็นกรอบปฏิบัติการในไทย</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title">⚖️ กฎหมาย PDPA (พ.ศ. 2562)</div>
+              <p>คุ้มครองข้อมูลส่วนบุคคลและข้อมูลอ่อนไหว (Sensitive Data) ตลอดวงจรชีวิตของระบบ AI</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section id="sec-10-2" class="section-block">
+          <h2 class="section-heading"><i>2.</i> หลักการจริยธรรมปัญญาประดิษฐ์ 10 มิติ (UNESCO)</h2>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>มิติที่</th>
+                  <th>ชื่อหลักการ (ไทย / อังกฤษ)</th>
+                  <th>สาระสำคัญ</th>
+                  <th>ขั้นตอนที่นำไปใช้งาน</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>1</strong></td>
+                  <td><strong>ความสมเหตุสมผลและการไม่ก่ออันตราย</strong><br>(Proportionality &amp; Do No Harm)</td>
+                  <td>ใช้ AI ให้ได้สัดส่วน ห้ามจัดอันดับทางสังคม (Social Scoring) ห้ามสอดส่องประชาชน</td>
+                  <td><span class="topic-pill" style="color: #f472b6;">ขั้นกำหนดขอบเขต EIA (Scoping)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>2</strong></td>
+                  <td><strong>ความปลอดภัยและความมั่นคง</strong><br>(Safety &amp; Security)</td>
+                  <td>ระบบต้องป้องกันข้อผิดพลาดและต้านทานการโจมตีทางไซเบอร์</td>
+                  <td>ระดับระบบ (System)</td>
+                </tr>
+                <tr>
+                  <td><strong>3</strong></td>
+                  <td><strong>ความเป็นธรรม ไม่เลือกปฏิบัติ</strong><br>(Fairness &amp; Diversity)</td>
+                  <td>ปฏิบัติต่อทุกคนอย่างเท่าเทียม ลดความเหลื่อมล้ำและอคติ</td>
+                  <td>ระดับข้อมูลและโมเดล (Data &amp; Model)</td>
+                </tr>
+                <tr>
+                  <td><strong>4</strong></td>
+                  <td><strong>ความยั่งยืน</strong><br>(Sustainability)</td>
+                  <td>คำนึงถึงพลังงาน การปล่อยคาร์บอน และผลกระทบต่อแรงงาน</td>
+                  <td>ระดับองค์กรและสังคม</td>
+                </tr>
+                <tr>
+                  <td><strong>5</strong></td>
+                  <td><strong>ความเป็นส่วนตัว</strong><br>(Privacy &amp; Data Protection)</td>
+                  <td>คุ้มครองข้อมูลตลอดวงจรชีวิต (Privacy by Design)</td>
+                  <td>ระดับระบบ (System)</td>
+                </tr>
+                <tr>
+                  <td><strong>6</strong></td>
+                  <td><strong>การกำกับดูแลโดยมนุษย์</strong><br>(Human Oversight)</td>
+                  <td>มนุษย์ต้องตรวจสอบ ยับยั้ง หรือยกเลิกคำตัดสินของ AI ได้</td>
+                  <td>ระดับระบบและองค์กร</td>
+                </tr>
+                <tr>
+                  <td><strong>7</strong></td>
+                  <td><strong>ความโปร่งใสและอธิบายได้</strong><br>(Transparency &amp; Explainability)</td>
+                  <td>ผู้ใช้ต้องรู้ว่ามีการใช้ AI และเข้าใจเหตุผลของผลลัพธ์ได้</td>
+                  <td>ระดับข้อมูลและโมเดล</td>
+                </tr>
+                <tr>
+                  <td><strong>8</strong></td>
+                  <td><strong>ความรับผิดชอบและภาระรับผิด</strong><br>(Accountability &amp; Responsibility)</td>
+                  <td>ความรับผิดชอบต้องผูกพันกับมนุษย์เสมอ ตรวจสอบย้อนกลับได้</td>
+                  <td>ระดับระบบและองค์กร</td>
+                </tr>
+                <tr>
+                  <td><strong>9</strong></td>
+                  <td><strong>ความตระหนักรู้และการรู้เท่าทัน</strong><br>(Awareness &amp; Literacy)</td>
+                  <td>สร้างทักษะ เข้าใจข้อจำกัด และป้องกัน Automation Bias</td>
+                  <td>ระดับสังคม</td>
+                </tr>
+                <tr>
+                  <td><strong>10</strong></td>
+                  <td><strong>การกำกับที่ปรับตัวและมีส่วนร่วม</strong><br>(Multi-stakeholder Governance)</td>
+                  <td>เปิดรับฟังผู้มีส่วนได้ส่วนเสียและกลุ่มเปราะบาง ปรับปรุงต่อเนื่อง</td>
+                  <td><span class="topic-pill" style="color: #f472b6;">ขั้นกำหนดขอบเขต EIA (Scoping)</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section id="sec-10-3" class="section-block">
+          <h2 class="section-heading"><i>3.</i> ความเป็นธรรมและความลำเอียง (Fairness &amp; Bias)</h2>
+          <div class="feature-grid">
+            <div class="feature-box">
+              <div class="feature-box-title" style="color: #60a5fa;">1. Data Bias</div>
+              <p>เกิดจากชุดข้อมูลฝึกสอนไม่สะท้อนความเป็นจริง หรือมีสัดส่วนกลุ่มประชากรไม่สมดุล</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title" style="color: #34d399;">2. Collection Bias</div>
+              <p>วิธีหรือกระบวนการเก็บรวบรวมข้อมูลสร้างอคติโดยไม่รู้ตัว เช่น สุ่มเก็บเฉพาะคนที่ใช้อินเทอร์เน็ตความเร็วสูง</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title" style="color: #fbbf24;">3. Algorithm Bias</div>
+              <p>การออกแบบโครงสร้างโมเดลหรือ Objective function ที่ให้น้ำหนักกับฟีเจอร์บางตัวมากเกินไป</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title" style="color: #f472b6;">4. Feedback Bias</div>
+              <p>ผลลัพธ์การทำนายของ AI ถูกนำวนกลับมาเป็นข้อมูลฝึกสอนในรอบถัดไป จนขยายอคติให้รุนแรงยิ่งขึ้น</p>
+            </div>
+          </div>
+
+          <div class="callout callout-warning">
+            <div class="callout-title">⚠️ เคสศึกษาประวัติศาสตร์ (Amazon Resume AI, 2018)</div>
+            <p>
+              AI คัดกรองเรซูเม่ผู้สมัครงานให้คะแนนผู้หญิงต่ำกว่าผู้ชาย เพราะเทรนด้วยข้อมูลย้อนหลัง 10 ปี ซึ่งมีแต่พนักงานชายเป็นส่วนใหญ่ สะท้อนว่า <strong>ค่า Accuracy โดยรวมที่สูง ไม่ได้รับประกันว่าโมเดลจะมีความเป็นธรรม! ต้องวัดแยกตามกลุ่มประชากร (Subgroup Evaluation) เสมอ</strong>
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section id="sec-10-4" class="section-block">
+          <h2 class="section-heading"><i>4.</i> ความโปร่งใส ความมั่นคง และการโจมตี AI</h2>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>ประเภทการโจมตีความปลอดภัย AI</th>
+                  <th>ลักษณะพฤติกรรมการโจมตี</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong style="color: #f87171;">Adversarial Attack</strong></td>
+                  <td>ป้อนสัญญาณรบกวนเล็กน้อยที่สายตามนุษย์มองไม่เห็น แต่หลอกให้โมเดลจำแนกผิดอย่างสิ้นเชิง</td>
+                </tr>
+                <tr>
+                  <td><strong style="color: #f87171;">Model Poisoning</strong></td>
+                  <td>แทรกข้อมูลอันตรายลงในชุดข้อมูลฝึกสอนเพื่อวางช่องโหว่ (Backdoor) แอบแฝง</td>
+                </tr>
+                <tr>
+                  <td><strong style="color: #f87171;">Model Stealing</strong></td>
+                  <td>ขโมยโครงสร้างหรือพารามิเตอร์ของโมเดลผ่านการยิง Query ซ้ำๆ เพื่อโคลนโมเดลออกมา</td>
+                </tr>
+                <tr>
+                  <td><strong style="color: #f87171;">Privacy / Membership Inference</strong></td>
+                  <td>ดึงข้อมูลส่วนบุคคลที่โมเดลจดจำไว้ออกมาจากตัวโมเดล</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section id="sec-10-5" class="section-block">
+          <h2 class="section-heading"><i>5.</i> กระบวนการประเมินผลกระทบทางจริยธรรม (EIA)</h2>
+          <p>
+            EIA <strong>ไม่ได้ทำหน้าที่ตัดสินว่าระบบ "ผ่าน" หรือ "ไม่ผ่าน"</strong> แต่มุ่งสร้างความโปร่งใส ชั่งน้ำหนักความเสี่ยงกับประโยชน์ และวางมาตรการลดผลกระทบ (Mitigation Measures)
+          </p>
+
+          <div class="feature-grid">
+            <div class="feature-box">
+              <div class="feature-box-title">Part 1: Scoping</div>
+              <p>กำหนดขอบเขต ประเมินความสมเหตุสมผล (มิติ 1) และการมีส่วนร่วม (มิติ 10) ว่าควรใช้ AI หรือไม่</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title">Part 2: Principles-based</div>
+              <p>ประเมิน 8 มิติจริยธรรมที่เหลือ ทบทวน Safeguards และค้นหาจุดบกพร่อง (Gaps)</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title">Part 3: Impact Mapping</div>
+              <p>ชั่งน้ำหนักผลบวก/ผลลบ ผ่านเกณฑ์ 5 ด้าน และออกมาตรการรองรับ</p>
+            </div>
+          </div>
+
+          <div class="callout callout-tip">
+            <div class="callout-title">เกณฑ์การวิเคราะห์ผลกระทบ 5 ด้าน (Impact Analysis Criteria):</div>
+            <p>
+              1. <strong>Scale (ระดับผลกระทบ):</strong> เชิงบวก (เล็กน้อยถึงสูงมาก) / เชิงลบ (เล็กน้อย, รุนแรง, วิกฤต, ร้ายแรงยิ่ง)<br>
+              2. <strong>Impacted Parties:</strong> ผู้ได้รับผลกระทบโดยตรง, โดยอ้อม, หรือไม่คาดคิด<br>
+              3. <strong>Timescale:</strong> ระยะสั้น, ระยะกลาง, ระยะยาว, ข้ามรุ่น<br>
+              4. <strong>Remediability (การเยียวยา):</strong> <em>ใช้เฉพาะผลกระทบเชิงลบเท่านั้น</em> (ประเมินว่าชดเชยหรือฟื้นฟูกลับคืนได้เพียงใด เพราะผลเชิงบวกไม่มีความเสียหายที่ต้องเยียวยา)<br>
+              5. <strong>Likelihood:</strong> โอกาสหรือความน่าจะเป็นที่จะเกิดขึ้น
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 6 (Case Study Spotlight) -->
+        <section id="sec-10-6" class="section-block" style="border: 2px solid rgba(236, 72, 153, 0.4); background: rgba(236, 72, 153, 0.04);">
+          <h2 class="section-heading"><i style="color: #ec4899;">🏥 6.</i> เคสศึกษาตัวอย่าง: AI คัดกรองผู้ป่วยนอกของโรงพยาบาลรัฐ</h2>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>มิติจริยธรรม</th>
+                  <th>ผลกระทบเชิงลบที่ตรวจพบ</th>
+                  <th>ระดับ / โอกาส / การเยียวยา</th>
+                  <th>มาตรการแก้ไข (Safeguards)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>ความเป็นธรรม</strong></td>
+                  <td>ผู้สูงอายุและผู้พูดภาษาไทยไม่ได้ ถูกจัดระดับเร่งด่วนต่ำกว่าจริง</td>
+                  <td>วิกฤต / ปานกลาง / ต่ำ</td>
+                  <td>ทดสอบความแม่นยำแยกกลุ่มประชากร, เพิ่มข้อมูลจากโรงพยาบาลภูมิภาค</td>
+                </tr>
+                <tr>
+                  <td><strong>การกำกับดูแล</strong></td>
+                  <td>พยาบาลเชื่อผล AI โดยไม่ตรวจสอบซ้ำ (Automation Bias)</td>
+                  <td>วิกฤต / สูง / ปานกลาง</td>
+                  <td>อบรมพยาบาล, บันทึก Log การ Overrule, มีระบบ Audit สุ่มตรวจรายเดือน</td>
+                </tr>
+                <tr>
+                  <td><strong>ความโปร่งใส</strong></td>
+                  <td>ผู้ป่วยไม่รู้ว่าใช้ AI และไม่มีการอธิบายเหตุผล</td>
+                  <td>รุนแรง / สูง / สูง</td>
+                  <td>ติดป้ายแจ้งชัดเจน, แสดง 3 ปัจจัยหลักที่ระบบใช้ในการตัดสินใจ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top: 1rem; color: #f472b6; font-weight: 600;">
+            * ข้อสรุป: ยังไม่ควรเปิดใช้งานระบบเต็มรูปแบบ จนกว่าจะดำเนินมาตรการครบถ้วน แล้วจึงทดลองใช้ในวงจำกัด (Pilot Phase)
+          </p>
+        </section>
+
+        <!-- Section 7 -->
+        <section id="sec-10-7" class="section-block">
+          <h2 class="section-heading"><i>7.</i> การใช้ AI อย่างรับผิดชอบของนักพัฒนาซอฟต์แวร์ (Developers)</h2>
+          <div class="feature-grid">
+            <div class="feature-box">
+              <div class="feature-box-title" style="color: #34d399;">✅ Do's</div>
+              <p>
+                • ต้องทำความเข้าใจโค้ดทุกบรรทัดก่อนนำไปรันจริง<br>
+                • ตรวจสอบ Edge cases และดักจับอาการ Hallucination<br>
+                • ตรวจสอบ License และสิทธิ์ทางปัญญาของไลบรารี
+              </p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title" style="color: #f87171;">❌ Don'ts</div>
+              <p>
+                • <strong>ห้ามใส่ API Keys, Passwords หรือข้อมูลส่วนบุคคล (PII) ลงใน Prompt เด็ดขาด</strong><br>
+                • ห้ามนำโค้ดที่ไม่เข้าใจไป Deploy ขึ้นระบบจริง<br>
+                • อย่าไว้วางใจ AI จนละเลยการเขียน Unit Tests
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- TAB 2: INTERACTIVE QUIZ -->
+    <div id="tab-quiz-content" style="display: none;">
+      <div id="chapter-quiz-container"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-nav">
+      <a href="index.html">หน้าแรก</a>
+      <a href="chapter06.html">บทที่ 6 การเรียนรู้ของเครื่อง</a>
+      <a href="chapter07.html">บทที่ 7 ต้นไม้ตัดสินใจ</a>
+      <a href="chapter08.html">บทที่ 8 โครงข่ายประสาทเทียม</a>
+      <a href="chapter09.html">บทที่ 9 Modern AI &amp; Generative AI</a>
+      <a href="chapter10.html">บทที่ 10 จริยธรรมใน AI</a>
+    </div>
+    <p>สรุปและแบบทดสอบรายวิชาปัญญาประดิษฐ์ • บทที่ 10 จริยธรรมในปัญญาประดิษฐ์</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/quiz_data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize Quiz for Chapter 10
+      new QuizEngine('chapter-quiz-container', QUIZ_DATABASE.chapter10);
+
+      // Handle direct tab link via URL parameter ?tab=quiz
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('tab') === 'quiz') {
+        const quizBtn = document.querySelector('.tab-btn[data-tab="quiz"]');
+        if (quizBtn) quizBtn.click();
+      }
+    });
+  </script>
+</body>
+</html>

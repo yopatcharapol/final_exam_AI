@@ -1,0 +1,318 @@
+--- Page 1 ---
+CHAPTER-7-DECISION TREE
+Wattanapong Suttapak
+1
+--- Page 2 ---
+OUTLINE
+• Definition of Decision Tree
+• Decision Tree Classification
+• The Example of Decision Tree Classification
+• Decision Tree Regression
+• The Example of Decision Tree Regression
+2
+--- Page 3 ---
+DEFINITION
+• Decision Treesหรือ แผนภาพการตัดสินใจเป็นหนึ่งในอัลกอริทึม machine learning ที่นิยมใช้งาน ทั้งในงานด้าน
+classification และ regression 
+• Decision Tree มีลักษณะของข้อมูล (Node) ประกอบกันเป็นรูปของต้นไม้ (Tree) โดยแต่ละข้อมูล (Node) จะถูก
+แบ่งแยกข้อมูลด้วยจุดตัดสินใจ (Decision Point) 
+• ท าให้ เมื่อมีข้อมูล (Node) ใหม่เข้ามา Decision Tree จะสามารถพยากรณ์ว่า Node ควรอยู่ภายใต้จุดตัดสินใจใด
+3
+--- Page 4 ---
+DECISION-TREE CLASSIFICATION 
+Binary classification
+- Classify data into 2 classes
+Multiclass Classification
+- Classify data into multiple classes
+4
+--- Page 5 ---
+DECISION-TREE CLASSIFICATION 
+Binary classification
+- Classify data into 2 classes
+Multiclass Classification
+- Classify data into multiple classes
+5
+--- Page 6 ---
+ตัวอย่าง DECISION TREE
+6
+--- Page 7 ---
+DECISION-TREE CLASSIFICATION 7
+Condition 1
+Condition 1.1
+Condition 1.1.1 Condition 1.1.2 Condition 1.1.3
+Condition 1.2
+Condition 1.2.1 Condition 1.2.2
+Time Complexity : O(log n) inBest Case
+--- Page 8 ---
+EXAMPLE 1
+𝑥 ≥ 80
+𝑥 ≥ 75
+𝑥 ≥ 70
+𝑥 ≥ 65
+𝑥 ≥ 60
+𝑥 ≥ 55
+𝑥 ≥ 50
+Get F Get D
+Get D+
+Get C
+Get C+
+Get B
+Get B+
+Get A
+8
+N Y
+N Y
+N Y
+N Y
+N Y
+N Y
+N Y
+Time Complexity : O(n) in Worst Case
+ตัวอย่างเช่นการพยากรณ์เกรดที่ได้
+Input = คะแนน
+Output = เกรดที่ได้
+--- Page 9 ---
+EXAMPLE 1
+𝑥 ≥ 65
+𝑥 ≥ 60
+𝑥 ≥ 55
+𝑥 ≥ 50
+Get F Get D
+Get D+
+Get C
+𝑥 ≥ 70
+Get C+ 𝑥 ≥ 70
+Get B 𝑥 ≥ 75
+Get B+ Get A
+9
+N Y
+N Y
+N Y
+N Y
+N Y
+N Y
+N Y
+Time Complexity : O(log2n)
+--- Page 10 ---
+EXAMPLE 1
+𝑥 ≥ 65
+𝑥 ≥ 55
+𝑥 ≥ 50
+Get F Get D
+𝑥 ≥ 60
+Get D+ Get C
+𝑥 ≥ 75
+𝑥 ≥ 70
+Get C+ Get B
+𝑥 ≥ 80
+Get B + Get A
+10
+N Y
+Y
+YYYY
+YN
+N N
+N
+NN
+Time Complexity : O(log2n)
+--- Page 11 ---
+EXAMPLE 1
+student1 71.29 B student21 66.04 C+ student41 47.41 D+
+student2 67.14 C+ student22 33.7 F student42 55.6 C
+student3 54.52 C student23 49.64 D+ student43 50 D+
+student4 71 B student24 54.97 C student44 66.97 C+
+student5 57.26 C student25 59.93 C student45 41.8 D
+student6 65.64 C+ student26 41.64 D student46 68.67 C+
+student7 56.52 C student27 56.81 C student47 55.6 C
+student8 28.06 F student28 40.34 D student48 56.17 C
+student9 48.71 D+ student29 63.8 C student49 59.5 C
+student10 33.5 F student30 68.93 C+ student50 57.66 C
+student11 42.44 D student31 62.52 C student51 63.36 C
+student12 11.43 F student32 40.94 D student52 16.6 F
+student13 55.18 C student33 65.64 C+ student53 46.37 D+
+student14 57.59 C student34 52.34 D+ student54 46.6 D+
+student15 46.53 D+ student35 71.43 B student55 77.37 B+
+student16 47.98 D+ student36 53.46 D+ student56 80 A
+student17 50.17 D+ student37 50.14 D+ student57 56.51 C
+student18 51.99 D+ student38 70.13 B student58 65.98 C+
+student19 58.95 C student39 54.21 D+ student59 54.51 C
+student20 65.87 C+ student40 66.38 C+ student60 56.64 C
+11
+student61 47.84 student71 77 student81 76.18
+student62 67.27 student72 50.64 student82 82.5
+student63 63.73 student73 59.46 student83 48.3
+student64 47.6 student74 52.14 student84 57.41
+student65 67.5 student75 44.03 student85 54.1
+student66 19.59 student76 55.33 student86 50.07
+student67 74.64 Student77 69.5 student87 52.4
+student68 45.12 Student78 52.49 student88 44.27
+student69 68.81 student79 52.37 student89 61.12
+student70 38.89 student80 63.67 student90 52.36
+Train T est
+ตัวอย่าง ชุดข้อมูลจริง ค้นหาเกณฑ์ตัดเกรด เพื่อคาดการณ์เกรดที่ควรจะเป็นของข้อมูลทดสอบ (T esting Dataset)
+--- Page 12 ---
+EXAMPLE 2
+จะจัดกลุ่มข้อมูลเป็น 2 กลุ่ม คือ คลาสวงกลม และคลาสสี่เหลี่ยมผืนผ้า 
+ได้อย่างไร?
+แนวทาง: 
+           เลือก Feature ที่ดีที่สุดส าหรับการแบ่งข้อมูล
+12
+--- Page 13 ---
+EXAMPLE 2
+จะจัดกลุ่มข้อมูลเป็น 2 กลุ่ม คือ คลาสวงกลม และคลาสสี่เหลี่ยมผืนผ้า 
+ได้อย่างไร?
+13
+x1
+x2
+0 5
+5
+x1 > 5
+No Yes
+???
+YesNo
+--- Page 14 ---
+EXAMPLE 2
+จะจัดกลุ่มข้อมูลเป็น 2 กลุ่ม คือ คลาสวงกลม และคลาสสี่เหลี่ยมผืนผ้า 
+ได้อย่างไร?
+14
+x1
+x2
+0 5
+5
+x1 > 5
+No Yes
+x2 > 5
+YesNo
+--- Page 15 ---
+ข้อดีของวิธี DECISION TREE
+• แปลผลง่ายต่อการเข้าใจ โดยสามารถแสดงข้อมูลเป็นแผนภาพได้ (Visualization)
+• ไม่ต้องมี กระบวนการแปลงข้อมูลก่อนเข้า Decision Tree
+• จัดการข้อมูล Non-linear ได้ด้วย
+15
+--- Page 16 ---
+LIMITAION
+• Overfitting: ง่ายต่อการเกิด overfitting กรณีข้อมูลมี noise เยอะ
+• Instability: ไม่เสถียร การเปลี่ยนแปลงข้อมูลเพียงเล็กน้อย น าไปสู่การเปลี่ยนแปลงโครงสร้าง Decision Tree ได้
+• Biased to Dominant Classes: ค่าการตัดสินใจ โอนเอียงไปยังกลุ่มข้อมูลส่วนใหญ่
+16
+--- Page 17 ---
+CLASSIFICATION ALGORITHM
+• Data Exploration:
+• Load and explore the dataset.
+• Check for missing values and handle them if 
+necessary.
+• Visualize the relationships between the features and 
+the target variable.
+• Data Preprocessing:
+• Encode categorical variables if there are any.
+• Split the dataset into training and testing sets.
+• Decision Tree Classification:
+• Build a decision tree classification model using a 
+library of your choice (e.g., scikit-learn).
+• Train the model on the training set.
+17
+• Model Evaluation:
+• Evaluate the performance of the model on 
+the testing set.
+• Use appropriate regression metrics such as 
+Mean Absolute Error (MAE), Mean Squared 
+Error (MSE), or R-squared.
+• Visualize the Decision Tree:
+• Visualize the decision tree to understand the 
+splits and decision-making process.
+• Prediction:
+• Use the trained model to classify the output 
+in testing dataset.
+ขั้นตอนการ Classify ข้อมูลด้วย Decision Tree แบ่งเป ็ น 6 ขั้นตอน
+--- Page 18 ---
+CLASSIFICATION ALGORITHM
+1. ส ำรวจข้อมูล:
+• โหลด และส ารวจข้อมูล 
+• กรณีมีข้อมูลหายไป ให้จัดการข้อมูลนั้น โดยการลบ หรือแทนที่ด้วยค่าประมาณการจากค่าใกล้เคียง
+• Visualize ความสัมพันธ์ระหว่าง features และเป้าหมาย Output Class
+2. Data Preprocessing:
+• แปลงค่า class อยู่ในรูปแบบของตัวเลข
+• แยก dataset เป ็ น training และ testing sets.
+3. Decision Tree Classification:
+• Build a decision tree classification model using a library of your choice (e.g., scikit-learn).
+• Train the model on the training set.
+18
+--- Page 19 ---
+CLASSIFICATION ALGORITHM19
+4. Model Evaluation:
+• Evaluate ประสิทธิภาพของ model ส าหรับข้อมูลValidation
+• ค านวณค่าความผิดพลาดด้วย Mean Absolute Error (MAE), Mean Squared Error (MSE), or R-squared.
+5. Visualize the Decision Tree:
+• Visualize the decision tree เพื่อดูการตัดสินใจที่เกิดขึ ้ นจากการ Train
+6. Prediction:
+• น า trained model ไป classify testing dataset.
+--- Page 20 ---
+REGRESSION USING DECISION TREE
+20
+--- Page 21 ---
+WHAT IS REGRESSION?
+• Regression เป็นการพยากรณ์ผลลัพธ์ของข้อมูล โดยพยากรณ์เป็นค่าตัวเลขออกมา
+𝑌′ = f 𝑋 +  ε for 𝑋 ∈  ℝ
+Training Input (𝑋)
+Predicted output (𝑌′)
+Noise (ε)
+• Regression เป็นการพยากรณ์ตัวเลขผลลัพธ์ที่มีค่าเป็นค่าใดก็ได้  𝑌′ ∈  ℝ
+• แตกต่างจากวิธีการ Classification ที่เป็นการพยากรณ์ว่าผลลัพธ์อยู่ในกลุ่มใด (จ านวนกลุ่มจะเป็นตัวเลขที่จ ากัด)
+• ในหัวข้อนี้จะพูดถึงการ Regression ด้วย Decision Tree โดยการพยากรณ์ Node ข้อมูล เป ็ นตัวเลข
+21
+--- Page 22 ---
+REGRESSION APPLICATION
+• Weather Forecast เช่น อุณหภูมิ PM2.5
+• พยากรณ์ปริมาณน ้า
+• พยากรณ์ราคาหุ้น ทองค า
+• พยากรณ์ราคาบ้าน
+22
+--- Page 23 ---
+OPTIMIZATION ALGORITHM IN DECISION TREE
+• ในการ Train Machine Learning ทุกประเภท จะต้องมี Optimization Function เพื่อท าให้ Model เรียนรู้ได้ดีขึ้น
+• ในหัวข้อ Neural Network จะใช้ Mean Square Error หรือ Cross Entropy Loss เพื่อท าการลดค่า Error 
+ระหว่าง Output จริงกับ Output ท านาย ให้มีค่าเข้าใกล้ 0
+• ใน Decision Tree ก็ต้องมี  Optimization Function เหมือนกัน โดยจะเรียกว่า Criterion Function 
+• Criterion Function จะเป็นฟังก์ชัน เพื่อค านวณค่า Error ระหว่าง Output จริงกับ Output ท านาย ให้มีค่าใกล้กัน
+ที่สุด 
+• Criterion Function ของ Decision Tree จะไม่มี Gradient Descent เพื่อช่วยการเรียนรู้ของ Model
+23
+--- Page 24 ---
+OPTIMIZATION ALGORITHM IN DECISION TREE
+CLASSIFICATION
+• Gini Impurity (ใช้กับ Regression ได้)
+• Entropy
+• Gain Ratio
+• Chi-Square
+• Hellinger Distance
+• Misclassification Rate 
+• Log Loss
+REGRESSION
+• Mean Squared Error (MSE)
+• Mean Absolute Error (MAE)
+• Friedman’s MSE
+• Poisson Deviance
+• Reduction in Variance
+24
+--- Page 25 ---
+GINI
+• Gini Impurity is a measure of the likelihood that a randomly chosen element from the 
+dataset would be incorrectly classified if it were randomly labeled according to the 
+distribution of labels in the dataset.
+25
+ไม่ออกสอบ
+--- Page 26 ---
+ENTROPY
+• Entropy is a measure of the disorder or impurity in the dataset. It quantifies the 
+uncertainty or randomness in the class distribution at a node.
+26
+ไม่ออกสอบ
+--- Page 27 ---
+LOG LOSS
+• T o measure the uncertainty of predictions, penalizing more heavily the confident and 
+incorrect predictions.
+27
+ไม่ออกสอบ
+--- Page 28 ---
+THANK YOU
+28

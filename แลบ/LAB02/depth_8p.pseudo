@@ -1,0 +1,62 @@
+function depth_limit_search(initial_state, goal_state):
+    stack = [(initial_state, [])]
+    visited = set()
+    limit = 5
+
+    while stack is not empty:
+        current_state, path = stack.pop()
+
+        if current_state.puzzle is equal to goal_state.puzzle:
+            return path
+
+        visited.add(tuple(current_state.puzzle))
+
+        for direction in ['up', 'down', 'left', 'right']:
+            if length of path == limit:
+                break
+            new_state = current_state.move(direction)
+
+            if new_state is not null and tuple(new_state.puzzle) not in visited:
+                stack.append((new_state, path + [direction]))
+        
+        print(path)
+
+    return null
+
+class PuzzleState:
+    function __init__(puzzle):
+        set puzzle
+        set size to length of puzzle
+        set blank_position to index of 0 in puzzle
+
+    function move(direction):
+        new_state = create a copy of this state
+        if direction is 'up' and new_state.blank_position >= 3:
+            swap blank_position with the element above it
+            decrement blank_position by 3
+        elif direction is 'down' and new_state.blank_position < 6:
+            swap blank_position with the element below it
+            increment blank_position by 3
+        elif direction is 'left' and new_state.blank_position % 3 is not 0:
+            swap blank_position with the element to its left
+            decrement blank_position by 1
+        elif direction is 'right' and (new_state.blank_position + 1) % 3 is not 0:
+            swap blank_position with the element to its right
+            increment blank_position by 1
+        else:
+            return null
+        return new_state
+
+# Example usage:
+initial_puzzle = [1, 2, 3, 4, 0, 5, 6, 7, 8]
+goal_puzzle = [1, 2, 3, 4, 5, 6, 7, 8, 0]
+
+initial_state = create an instance of PuzzleState with initial_puzzle
+goal_state = create an instance of PuzzleState with goal_puzzle
+
+solution_path = depth_first_search(initial_state, goal_state)
+
+if solution_path is not null:
+    print("Solution Path:", solution_path)
+else:
+    print("No solution found.")

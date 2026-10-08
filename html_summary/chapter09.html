@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บทที่ 9: Modern AI, Generative AI &amp; Case Study | สรุปและแบบทดสอบ</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-brand-badge" style="background: var(--ch9-color);">09</span>
+        <span>AI Study Portal</span>
+      </a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html">หน้าแรก</a></li>
+        <li class="nav-item"><a href="chapter06.html">บทที่ 6 (ML)</a></li>
+        <li class="nav-item"><a href="chapter07.html">บทที่ 7 (Tree)</a></li>
+        <li class="nav-item"><a href="chapter08.html">บทที่ 8 (ANN)</a></li>
+        <li class="nav-item"><a href="chapter09.html" class="active">บทที่ 9 (Modern AI)</a></li>
+        <li class="nav-item"><a href="chapter10.html">บทที่ 10 (Ethics)</a></li>
+      </ul>
+      <div class="nav-controls">
+        <button id="theme-toggle-btn" class="btn-icon" title="เปลี่ยนธีม">☀️</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-wrapper">
+    <!-- Chapter Header -->
+    <header class="chapter-header">
+      <div class="breadcrumb">
+        <a href="index.html">หน้าแรก</a> <span>/</span>
+        <span>บทที่ 9</span> <span>/</span>
+        <span>Modern AI &amp; Case Study</span>
+      </div>
+      <div class="chapter-title-group">
+        <div>
+          <span class="card-badge" style="color: var(--ch9-color); border-color: var(--ch9-color);">Generative AI &amp; Transformers</span>
+          <h1 class="chapter-main-title">บทที่ 9: Modern AI, Generative AI &amp; Case Study</h1>
+          <p class="chapter-lead">
+            วิวัฒนาการสู่การเรียนรู้เชิงลึก (Deep Learning), กลไก CNN, โมเดลเชิงสร้างสรรค์ (GANs, VAEs, Diffusion Denoising), กรณีศึกษางานวิจัยฟิล์ม X-ray ทันตกรรม, สถาปัตยกรรม Transformer, โทเค็นภาษาไทย และเทคนิค Prompt Engineering
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Tab Buttons -->
+    <div class="tab-container">
+      <button class="tab-btn active" data-tab="summary">📖 สรุปเนื้อหาเจาะลึก</button>
+      <button class="tab-btn" data-tab="quiz">🎯 แบบทดสอบท้ายบท (10 ข้อ)</button>
+    </div>
+
+    <!-- TAB 1: SUMMARY CONTENT -->
+    <div id="tab-summary-content" class="study-content">
+      <!-- Sidebar TOC -->
+      <aside class="study-sidebar">
+        <div class="sidebar-title">📑 หัวข้อในบทนี้</div>
+        <ul class="toc-list">
+          <li class="toc-item"><a href="#sec-9-1">1. วิวัฒนาการสู่ Deep Learning</a></li>
+          <li class="toc-item"><a href="#sec-9-2">2. โครงข่าย CNN และการสกัดภาพ</a></li>
+          <li class="toc-item"><a href="#sec-9-3">3. Generative vs Discriminative AI</a></li>
+          <li class="toc-item"><a href="#sec-9-4">4. 🌟 เคสศึกษาฟิล์ม X-ray ทันตกรรม</a></li>
+          <li class="toc-item"><a href="#sec-9-5">5. Transformers &amp; LLMs</a></li>
+          <li class="toc-item"><a href="#sec-9-6">6. วิศวกรรมคำสั่ง (Prompting)</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main Study Body -->
+      <div class="study-body">
+        <!-- Section 1 -->
+        <section id="sec-9-1" class="section-block" style="--ch-theme: var(--ch9-color);">
+          <h2 class="section-heading"><i>1.</i> วิวัฒนาการสู่ Modern AI และการเรียนรู้เชิงลึก</h2>
+          <p>
+            Modern AI ขับเคลื่อนด้วย Deep Learning และขุมพลังประมวลผล GPU/TPU ก้าวข้ามขีดจำกัดเดิมที่ต้องออกแบบฟีเจอร์ด้วยมือ (Handcrafted Features) สู่ <strong>การสกัดคุณลักษณะอัตโนมัติ (Automatic Feature Extraction)</strong>
+          </p>
+
+          <div class="callout callout-warning">
+            <div class="callout-title">⚠️ ทำไม Fully Connected Network (FCN) จึงล้มเหลวกับข้อมูลภาพ?</div>
+            <p>
+              1. <strong>การสูญเสียโครงสร้างเชิงพื้นที่ (Loss of Spatial Information):</strong> เมื่อคลี่ภาพ 2D ให้เป็นเวกเตอร์ 1D (Flattening) ค่าพิกเซลที่เคยอยู่ติดกันในแนวดิ่งจะถูกดึงห่างจากกัน โครงข่ายจึงมองไม่เห็นรูปทรง เส้น ขอบ หรือลวดลาย<br>
+              2. <strong>พารามิเตอร์ระเบิด (Parameter Explosion):</strong> ภาพสีขนาดปกติ เช่น $200 \times 200 \times 3$ มีพิกเซล 120,000 จุด หากต่อเข้า Hidden Layer เพียง 1,000 นิวรอน จะมี Weights มากกว่า <strong>120 ล้านตัวในชั้นเดียว</strong> ส่งผลให้ฝึกช้า กินแรม และ Overfitting ได้ง่ายมาก
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section id="sec-9-2" class="section-block">
+          <h2 class="section-heading"><i>2.</i> โครงข่ายประสาทเทียมแบบคอนโวลูชัน (CNN)</h2>
+          <p>
+            CNN ถูกออกแบบขึ้นมาเพื่อจัดการกับข้อมูลภาพโดยเฉพาะ โดยอาศัย 2 เสาหลักสำคัญ:
+          </p>
+          <div class="feature-grid">
+            <div class="feature-box">
+              <div class="feature-box-title" style="color: #60a5fa;">👁️ 1. Local Receptive Field</div>
+              <p>นิวรอนเชื่อมต่อและสนใจเฉพาะบริเวณย่อยๆ (Local Region) ของภาพ ไม่ต้องเชื่อมกับทุกพิกเซล</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title" style="color: #34d399;">🔄 2. Parameter Sharing</div>
+              <p>ใช้ Filter (Kernel) ชุดเดียวกันเลื่อนกวาดตรวจจับทั่วทั้งภาพ ทำให้เกิดคุณสมบัติ <strong>Translation Invariance</strong> (วัตถุขยับไปตรงไหนก็ตรวจพบ)</p>
+            </div>
+          </div>
+
+          <h3 class="sub-heading">ขั้นตอนการทำงาน (CNN Pipeline):</h3>
+          <div class="formula-box" style="font-size: 0.95rem;">
+            Input Image &rarr; Convolution (สกัด Feature Map) &rarr; ReLU &rarr; Max Pooling (ลดขนาดมิติ) &rarr; Flatten &rarr; Fully Connected &rarr; Output (Softmax)
+          </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section id="sec-9-3" class="section-block">
+          <h2 class="section-heading"><i>3.</i> ปัญญาประดิษฐ์เชิงสร้างสรรค์ (Generative AI)</h2>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>มิติ</th>
+                  <th>Discriminative AI (แบบจำแนก)</th>
+                  <th>Generative AI (แบบเชิงสร้างสรรค์)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>เป้าหมาย</strong></td>
+                  <td>จำแนก แยกแยะ หรือทำนายคลาสของข้อมูล</td>
+                  <td>สังเคราะห์และสร้างข้อมูลชุดใหม่ที่สมจริง</td>
+                </tr>
+                <tr>
+                  <td><strong>หลักสถิติ</strong></td>
+                  <td>ประมาณค่าความน่าจะเป็นแบบมีเงื่อนไข <code>P(Y | X)</code></td>
+                  <td>ประมาณค่าการกระจายตัวของข้อมูล <code>P(X)</code> หรือ <code>P(X, Y)</code></td>
+                </tr>
+                <tr>
+                  <td><strong>ตัวอย่างโมเดล</strong></td>
+                  <td>CNN, SVM, Logistic Regression, Decision Tree</td>
+                  <td>GANs, VAEs, Diffusion Models, Transformers (LLMs)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="sub-heading">4 ตระกูลโมเดลเชิงสร้างสรรค์หลัก:</h3>
+          <div class="feature-grid">
+            <div class="feature-box">
+              <div class="feature-box-title" style="color: #f59e0b;">1. GANs (Adversarial)</div>
+              <p>การแข่งขันระหว่าง <strong>Generator</strong> (ผู้สร้างของปลอม) กับ <strong>Discriminator</strong> (ผู้ตรวจจับ) เมื่อเสร็จสิ้นจะดึงเฉพาะ Generator ไปใช้งาน</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title" style="color: #60a5fa;">2. VAEs (Latent Space)</div>
+              <p>บีบอัดภาพผ่าน Encoder ลงสู่ Latent Space ในรูปค่า Mean (&mu;) และ Std (&sigma;) แล้วใช้ Decoder สุ่มกู้คืนกลับมา</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title" style="color: #10b981;">3. Diffusion Models</div>
+              <p><strong>มาตรฐานปัจจุบัน</strong> ทำงาน 2 สเต็ป: <em>Forward</em> (ค่อยๆ เติม Noise จนกลายเป็น Pure Noise) และ <em>Reverse</em> (โมเดลเรียนรู้การถอด Noise ออกทีละสเต็ปตามคำสั่ง Prompt) คมชัดสมจริงสูงสุด แต่คำนวณช้าและกิน VRAM มหาศาล</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title" style="color: #ec4899;">4. Transformers</div>
+              <p>ใช้กลไก Self-Attention ประมวลผลแบบคู่ขนาน เป็นรากฐานของโมเดลภาษาขนาดใหญ่ (LLMs) และมัลติโมดัล</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4 (Case Study Highlight) -->
+        <section id="sec-9-4" class="section-block" style="border: 2px solid rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.04);">
+          <h2 class="section-heading"><i style="color: #f59e0b;">🌟 4.</i> เคสศึกษาจริงจากอาจารย์: AI ฟิล์ม X-ray ทันตกรรม (Dental Project)</h2>
+          
+          <div class="callout callout-case">
+            <div class="callout-title">🦷 บริบทและปัญหาที่เกิดขึ้นจริงในงานวิจัย</div>
+            <p>
+              • <strong>โจทย์:</strong> วินิจฉัยโรคเหงือก/ฟันจากฟิล์ม X-ray แบ่ง 3 คลาส: <em>(1) ปกติ, (2) รักษาได้, (3) ต้องถอนทิ้ง</em><br>
+              • <strong>ปัญหา:</strong> ชุดข้อมูลเริ่มต้นมีภาพจริงที่ Label แล้วเพียงประมาณ <strong>1,000 ภาพ</strong> ส่งผลให้เทรนโมเดลแล้วแม่นยำต่ำเพียง <strong>50% - 65%</strong><br>
+              • <strong>ข้อจำกัดด้านต้นทุนเวลา:</strong> การประเมินฟิล์ม 1,000 ภาพ ต้องใช้ทันตแพทย์ 3 คนตรวจร่วมกัน ภาพละ 5 นาที รวมเวลา 15,000 นาที หากคิดค่าเสียโอกาสในการรักษา (ถอนฟัน 1 ซี่ 500 บาท ใช้เวลา 10 นาที) <strong>มูลค่าเวลาในการตรวจเฉลี่ยเกือบ 1 ล้านบาท!</strong><br>
+              • <strong>การแก้ปัญหาด้วย Diffusion Model:</strong> อาจารย์นำ Diffusion Model มาเรียนรู้โครงสร้างของฟิล์ม X-ray และ <strong>สังเคราะห์ภาพฟิล์ม X-ray ขึ้นมาเพิ่ม (Data Augmentation)</strong> ช่วยขยายขนาด Dataset จนทำให้ความแม่นยำของ AI เพิ่มขึ้นอย่างมีนัยสำคัญ
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section id="sec-9-5" class="section-block">
+          <h2 class="section-heading"><i>5.</i> สถาปัตยกรรม Transformer และ Large Language Models (LLMs)</h2>
+          <div class="feature-grid">
+            <div class="feature-box">
+              <div class="feature-box-title">Next Token Prediction</div>
+              <p>พื้นฐานของ LLM คือการคำนวณความน่าจะเป็นของคำถัดไป <code>P(T_{n+1} | T_1, ..., T_n)</code> แล้วสุ่มเลือกคำที่เหมาะสมมารวมในประโยค</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title">Tokenization ภาษาไทย</div>
+              <p>ภาษาไทยไม่มี Space คั่นคำ ทำให้ระบบตัดคำซับซ้อน คำภาษาไทย 1 คำมักถูกตัดเป็นหลาย Token <strong>ส่งผลให้กิน Token มากกว่าภาษาอังกฤษ 2-4 เท่า</strong> ในความหมายเดียวกัน</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title">Self-Attention (Q, K, V)</div>
+              <p>คำนวณค่าน้ำหนักความสัมพันธ์ระหว่างคำทุกคำในประโยคพร้อมกัน เช่น เชื่อมโยงได้ถูกต้องว่าคำว่า "มัน" ในประโยคหมายถึง "กระรอก" หรือ "สุนัข"</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title">การเปรียบเทียบ AI Assistant</div>
+              <p><strong>Claude:</strong> โดดเด่นด้านจัดหน้าเอกสารวิชาการ และเขียน Test case ละเอียด แต่กิน Token ไว<br><strong>Gemini (Antigravity):</strong> เร็ว ฉลาด ประหยัด Token สูง เหมาะกับงานเขียนโค้ดที่ต้องการจบใน Session Limit</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 6 -->
+        <section id="sec-9-6" class="section-block">
+          <h2 class="section-heading"><i>6.</i> วิศวกรรมคำสั่ง (Prompt Engineering)</h2>
+          <div class="callout callout-important">
+            <div class="callout-title">โครงสร้าง Prompt ที่มีประสิทธิภาพ</div>
+            <p>
+              1. <strong>Role (บทบาท):</strong> กำหนดตัวตน เช่น <em>"สวมบทบาทเป็น Senior Cloud Architect..."</em><br>
+              2. <strong>Task (งานที่สั่ง):</strong> ระบุสิ่งที่ต้องการให้ทำอย่างชัดเจน<br>
+              3. <strong>Format (รูปแบบ):</strong> ระบุรูปแบบ เช่น ตาราง Markdown, JSON, ข้อความ 3 ย่อหน้า<br>
+              4. <strong>Constraints (ข้อจำกัด):</strong> เงื่อนไขสิ่งที่ห้ามทำ ขอบเขตภาษา<br>
+              5. <strong>Reasoning / Chain of Thought (CoT):</strong> การสั่งให้โมเดล <em>"คิดวิเคราะห์เป็นขั้นเป็นตอน (Step-by-step)"</em> ช่วยให้แก้โจทย์คณิตศาสตร์และปัญหาตรรกะเชิงลึกได้แม่นยำขึ้นมาก
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- TAB 2: INTERACTIVE QUIZ -->
+    <div id="tab-quiz-content" style="display: none;">
+      <div id="chapter-quiz-container"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-nav">
+      <a href="index.html">หน้าแรก</a>
+      <a href="chapter06.html">บทที่ 6 การเรียนรู้ของเครื่อง</a>
+      <a href="chapter07.html">บทที่ 7 ต้นไม้ตัดสินใจ</a>
+      <a href="chapter08.html">บทที่ 8 โครงข่ายประสาทเทียม</a>
+      <a href="chapter09.html">บทที่ 9 Modern AI &amp; Generative AI</a>
+      <a href="chapter10.html">บทที่ 10 จริยธรรมใน AI</a>
+    </div>
+    <p>สรุปและแบบทดสอบรายวิชาปัญญาประดิษฐ์ • บทที่ 9 Modern AI &amp; Generative AI</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/quiz_data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize Quiz for Chapter 9
+      new QuizEngine('chapter-quiz-container', QUIZ_DATABASE.chapter09);
+
+      // Handle direct tab link via URL parameter ?tab=quiz
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('tab') === 'quiz') {
+        const quizBtn = document.querySelector('.tab-btn[data-tab="quiz"]');
+        if (quizBtn) quizBtn.click();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+population = make_population(POPULATION, initial)
+for i in generation
+    elite_population = regeneration(population)
+    reorder(elite_population)
+    new_population = offsprings(elite)
+    conflict = max(get_fitness(new_population))
+    if conflict == 0:
+        break

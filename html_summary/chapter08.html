@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บทที่ 8: โครงข่ายประสาทเทียม (Artificial Neural Network) | สรุปและแบบทดสอบ</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-brand-badge" style="background: var(--ch8-color);">08</span>
+        <span>AI Study Portal</span>
+      </a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html">หน้าแรก</a></li>
+        <li class="nav-item"><a href="chapter06.html">บทที่ 6 (ML)</a></li>
+        <li class="nav-item"><a href="chapter07.html">บทที่ 7 (Tree)</a></li>
+        <li class="nav-item"><a href="chapter08.html" class="active">บทที่ 8 (ANN)</a></li>
+        <li class="nav-item"><a href="chapter09.html">บทที่ 9 (Modern AI)</a></li>
+        <li class="nav-item"><a href="chapter10.html">บทที่ 10 (Ethics)</a></li>
+      </ul>
+      <div class="nav-controls">
+        <button id="theme-toggle-btn" class="btn-icon" title="เปลี่ยนธีม">☀️</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-wrapper">
+    <!-- Chapter Header -->
+    <header class="chapter-header">
+      <div class="breadcrumb">
+        <a href="index.html">หน้าแรก</a> <span>/</span>
+        <span>บทที่ 8</span> <span>/</span>
+        <span>โครงข่ายประสาทเทียม</span>
+      </div>
+      <div class="chapter-title-group">
+        <div>
+          <span class="card-badge" style="color: var(--ch8-color); border-color: var(--ch8-color);">Neural Networks &amp; Deep Learning</span>
+          <h1 class="chapter-main-title">บทที่ 8: โครงข่ายประสาทเทียม (Artificial Neural Network: ANN)</h1>
+          <p class="chapter-lead">
+            เรียนรู้สถาปัตยกรรมนิวรอนชีวภาพสู่นิวรอนเทียม, Weights &amp; Bias, ฟังก์ชันกระตุ้น (ReLU, Sigmoid, Softmax), ข้อจำกัด XOR ของ Perceptron, โครงข่าย MLP, อัลกอริทึม Backpropagation และ Gradient Descent
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Tab Buttons -->
+    <div class="tab-container">
+      <button class="tab-btn active" data-tab="summary">📖 สรุปเนื้อหาเจาะลึก</button>
+      <button class="tab-btn" data-tab="quiz">🎯 แบบทดสอบท้ายบท (10 ข้อ)</button>
+    </div>
+
+    <!-- TAB 1: SUMMARY CONTENT -->
+    <div id="tab-summary-content" class="study-content">
+      <!-- Sidebar TOC -->
+      <aside class="study-sidebar">
+        <div class="sidebar-title">📑 หัวข้อในบทนี้</div>
+        <ul class="toc-list">
+          <li class="toc-item"><a href="#sec-8-1">1. โครงสร้างนิวรอนเทียม</a></li>
+          <li class="toc-item"><a href="#sec-8-2">2. ฟังก์ชันกระตุ้น (Activation)</a></li>
+          <li class="toc-item"><a href="#sec-8-3">3. Perceptron vs MLP &amp; XOR</a></li>
+          <li class="toc-item"><a href="#sec-8-4">4. วงจรฝึกสอน (Backpropagation)</a></li>
+          <li class="toc-item"><a href="#sec-8-5">5. ตระกูลโครงข่าย (FNN, CNN, RNN)</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main Study Body -->
+      <div class="study-body">
+        <!-- Section 1 -->
+        <section id="sec-8-1" class="section-block" style="--ch-theme: var(--ch8-color);">
+          <h2 class="section-heading"><i>1.</i> แนวคิดและโครงสร้างของนิวรอนเทียม (Artificial Neuron)</h2>
+          <p>
+            จำลองการทำงานจากเซลล์ประสาทชีวภาพ (Biological Neuron) โดยแปลงสัญญาณเคมีไฟฟ้าเป็นแบบจำลองทางคณิตศาสตร์:
+          </p>
+
+          <div class="formula-box">
+            Net Input (z) = &sum; (w_i &times; x_i) + b &nbsp;&nbsp;|&nbsp;&nbsp; Output (y) = f(z)
+          </div>
+
+          <div class="feature-grid">
+            <div class="feature-box">
+              <div class="feature-box-title">📥 Input (x_i)</div>
+              <p>สัญญาณหรือคุณลักษณะที่ส่งเข้ามาสู่นิวรอน (เปรียบเสมือน Dendrite)</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title">⚖️ Weight (w_i)</div>
+              <p>ค่าน้ำหนักถ่วง กำหนดความสำคัญและอิทธิพลของแต่ละตัวแปร (เปรียบเสมือน Synaptic Strength)</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title">🎚️ Bias (b)</div>
+              <p>ค่าไบแอส เลื่อนระดับการกระตุ้น (Shift threshold) ช่วยให้โมเดลไม่ถูกจำกัดให้เส้นต้องตัดจุดกำเนิด (0,0)</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title">⚡ Activation Function f(z)</div>
+              <p>ฟังก์ชันกระตุ้น กำหนดว่านิวรอนจะยิงสัญญาณ (Fire) ออกไปในระดับความแรงเท่าใด</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section id="sec-8-2" class="section-block">
+          <h2 class="section-heading"><i>2.</i> ฟังก์ชันกระตุ้นที่สำคัญ (Activation Functions)</h2>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>ฟังก์ชัน</th>
+                  <th>สูตรคณิตศาสตร์</th>
+                  <th>ช่วงค่าผลลัพธ์</th>
+                  <th>การนำไปใช้งาน &amp; จุดเด่น</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong style="color: #94a3b8;">Step Function</strong></td>
+                  <td><code>f(z) = 1 if z &ge; 0 else 0</code></td>
+                  <td><code>{0, 1}</code></td>
+                  <td>ใช้ใน Perceptron ยุคแรก (Binary threshold) หาอนุพันธ์ไม่ได้</td>
+                </tr>
+                <tr>
+                  <td><strong style="color: #60a5fa;">Sigmoid</strong></td>
+                  <td><code>&sigma;(z) = 1 / (1 + e^(-z))</code></td>
+                  <td><code>(0, 1)</code></td>
+                  <td>นิยมใช้ที่ <strong>Output Layer สำหรับ Binary Classification</strong> (ตีความเป็นความน่าจะเป็น)</td>
+                </tr>
+                <tr>
+                  <td><strong style="color: #38bdf8;">Tanh</strong></td>
+                  <td><code>tanh(z) = (e^z - e^(-z)) / (e^z + e^(-z))</code></td>
+                  <td><code>(-1, 1)</code></td>
+                  <td>Zero-centered (กึ่งกลางอยู่ที่ 0) ช่วยให้การลู่เข้าของ Gradient เสถียรกว่า Sigmoid</td>
+                </tr>
+                <tr>
+                  <td><strong style="color: #a78bfa;">ReLU</strong></td>
+                  <td><code>f(z) = max(0, z)</code></td>
+                  <td><code>[0, &infin;)</code></td>
+                  <td><strong>มาตรฐานสูงสุดใน Hidden Layer</strong> คำนวณเร็วมาก และไม่เกิด Vanishing Gradient ในโซนบวก</td>
+                </tr>
+                <tr>
+                  <td><strong style="color: #f472b6;">Softmax</strong></td>
+                  <td><code>Softmax(z_i) = e^(z_i) / &sum; e^(z_j)</code></td>
+                  <td><code>(0, 1), &sum; = 1</code></td>
+                  <td><strong>Output Layer สำหรับ Multiclass Classification</strong> แปลงคะแนนเป็นความน่าจะเป็นที่รวมกันได้ 1 พอดี</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section id="sec-8-3" class="section-block">
+          <h2 class="section-heading"><i>3.</i> เพอร์เซปตรอนและโครงข่ายหลายชั้น (Perceptron vs MLP)</h2>
+          
+          <div class="callout callout-warning">
+            <div class="callout-title">⚠️ วิกฤตปัญหา XOR ของ Single Layer Perceptron (1969)</div>
+            <p>
+              Single Layer Perceptron มีเพียงเส้นแบ่งตรง (Hyperplane) เส้นเดียว สามารถแก้ปัญหาที่ <strong>แยกขาดด้วยเส้นตรง (Linearly Separable)</strong> ได้ เช่น AND, OR แต่ <strong>ไม่สามารถแก้ปัญหาฟังก์ชันตรรกะ XOR ได้</strong> ซึ่งทำให้เกิดยุคตกต่ำของ AI (AI Winter)
+            </p>
+          </div>
+
+          <div class="callout callout-tip">
+            <div class="callout-title">💡 การก้าวข้ามด้วย Multi-Layer Perceptron (MLP)</div>
+            <p>
+              เมื่อเพิ่ม <strong>Hidden Layer (ชั้นซ่อน)</strong> และใช้ <strong>Non-linear Activation Functions</strong> โครงข่ายจะสามารถบิดงอและรวมเส้นแบ่งตรงหลายเส้นเข้าด้วยกัน จนสามารถจำลองพื้นที่การตัดสินใจที่โค้งงอซับซ้อน และแก้ปัญหา XOR รวมถึงปัญหาในโลกจริงได้อย่างสมบูรณ์แบบ
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section id="sec-8-4" class="section-block">
+          <h2 class="section-heading"><i>4.</i> วงจรการฝึกสอนโครงข่าย (Training Pipeline)</h2>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>ขั้นตอน</th>
+                  <th>ชื่อกระบวนการ</th>
+                  <th>รายละเอียดการทำงาน</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td><strong>Forward Propagation</strong></td>
+                  <td>ส่งสัญญาณอินพุตผ่านค่าน้ำหนัก ไบแอส และฟังก์ชันกระตุ้น จากเลเยอร์แรกไปจนถึงเลเยอร์สุดท้ายเพื่อหาผลทำนาย (&ycirc;)</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td><strong>Loss Computation</strong></td>
+                  <td>คำนวณหาค่าความคลาดเคลื่อนเทียบกับเฉลยจริง เช่น MSE (Mean Squared Error) หรือ Cross-Entropy Loss</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td><strong>Backpropagation</strong></td>
+                  <td>คำนวณหาความชัน (Gradients: &part;Loss / &part;W) ย้อนกลับจากท้ายมาหน้า โดยอาศัย <strong>กฎลูกโซ่ของแคลคูลัส (Chain Rule)</strong></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td><strong>Gradient Descent</strong></td>
+                  <td>
+                    ปรับปรุงค่าน้ำหนักตามสมการ: <code>W &larr; W - &eta; &times; (&part;Loss / &part;W)</code><br>
+                    *(โดย &eta; คือ Learning Rate ซึ่งคุมขนาดก้าว หากสูงไปจะแกว่งหลุดต่ำสุด หากต่ำไปจะเรียนรู้ช้ามาก)*
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section id="sec-8-5" class="section-block">
+          <h2 class="section-heading"><i>5.</i> ประเภทหลักของโครงข่ายประสาทเทียม</h2>
+          <div class="feature-grid">
+            <div class="feature-box">
+              <div class="feature-box-title" style="color: #60a5fa;">FNN (Feedforward)</div>
+              <p>สัญญาณเดินทางทิศทางเดียวจากหน้าไปหลัง ไม่มีลูปย้อนกลับ เหมาะกับข้อมูลตารางและตัวเลขทั่วไป</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title" style="color: #34d399;">CNN (Convolutional)</div>
+              <p>ออกแบบมาเพื่อสกัดคุณลักษณะเชิงพื้นที่ (Spatial) เหมาะกับข้อมูลภาพดิจิทัลและวิดีโอ</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title" style="color: #f472b6;">RNN (Recurrent)</div>
+              <p>มีวงจรป้อนกลับ (Feedback Loop) จำบริบทในอดีตได้ เหมาะกับข้อมูลลำดับเวลา (Time-series) และภาษา (NLP)</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- TAB 2: INTERACTIVE QUIZ -->
+    <div id="tab-quiz-content" style="display: none;">
+      <div id="chapter-quiz-container"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-nav">
+      <a href="index.html">หน้าแรก</a>
+      <a href="chapter06.html">บทที่ 6 การเรียนรู้ของเครื่อง</a>
+      <a href="chapter07.html">บทที่ 7 ต้นไม้ตัดสินใจ</a>
+      <a href="chapter08.html">บทที่ 8 โครงข่ายประสาทเทียม</a>
+      <a href="chapter09.html">บทที่ 9 Modern AI &amp; Generative AI</a>
+      <a href="chapter10.html">บทที่ 10 จริยธรรมใน AI</a>
+    </div>
+    <p>สรุปและแบบทดสอบรายวิชาปัญญาประดิษฐ์ • บทที่ 8 โครงข่ายประสาทเทียม</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/quiz_data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize Quiz for Chapter 8
+      new QuizEngine('chapter-quiz-container', QUIZ_DATABASE.chapter08);
+
+      // Handle direct tab link via URL parameter ?tab=quiz
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('tab') === 'quiz') {
+        const quizBtn = document.querySelector('.tab-btn[data-tab="quiz"]');
+        if (quizBtn) quizBtn.click();
+      }
+    });
+  </script>
+</body>
+</html>

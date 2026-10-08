@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บทที่ 6: การเรียนรู้ของเครื่อง (Machine Learning) | สรุปและแบบทดสอบ</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-brand-badge" style="background: var(--ch6-color);">06</span>
+        <span>AI Study Portal</span>
+      </a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html">หน้าแรก</a></li>
+        <li class="nav-item"><a href="chapter06.html" class="active">บทที่ 6 (ML)</a></li>
+        <li class="nav-item"><a href="chapter07.html">บทที่ 7 (Tree)</a></li>
+        <li class="nav-item"><a href="chapter08.html">บทที่ 8 (ANN)</a></li>
+        <li class="nav-item"><a href="chapter09.html">บทที่ 9 (Modern AI)</a></li>
+        <li class="nav-item"><a href="chapter10.html">บทที่ 10 (Ethics)</a></li>
+      </ul>
+      <div class="nav-controls">
+        <button id="theme-toggle-btn" class="btn-icon" title="เปลี่ยนธีม">☀️</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-wrapper">
+    <!-- Chapter Header -->
+    <header class="chapter-header">
+      <div class="breadcrumb">
+        <a href="index.html">หน้าแรก</a> <span>/</span>
+        <span>บทที่ 6</span> <span>/</span>
+        <span>การเรียนรู้ของเครื่อง</span>
+      </div>
+      <div class="chapter-title-group">
+        <div>
+          <span class="card-badge" style="color: var(--ch6-color); border-color: var(--ch6-color);">Machine Learning Core</span>
+          <h1 class="chapter-main-title">บทที่ 6: การเรียนรู้ของเครื่อง (Machine Learning: ML)</h1>
+          <p class="chapter-lead">
+            สรุปหลักการทำงานของ ML, ความแตกต่างจากการเขียนโปรแกรมแบบดั้งเดิม, 3 รูปแบบการเรียนรู้หลัก, วงจร ML Pipeline, การจัดการ Overfitting และการประเมินผลโมเดลด้วยตัวชี้วัดสากล
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Tab Buttons -->
+    <div class="tab-container">
+      <button class="tab-btn active" data-tab="summary">📖 สรุปเนื้อหาเจาะลึก</button>
+      <button class="tab-btn" data-tab="quiz">🎯 แบบทดสอบท้ายบท (10 ข้อ)</button>
+    </div>
+
+    <!-- TAB 1: SUMMARY CONTENT -->
+    <div id="tab-summary-content" class="study-content">
+      <!-- Sidebar TOC -->
+      <aside class="study-sidebar">
+        <div class="sidebar-title">📑 หัวข้อในบทนี้</div>
+        <ul class="toc-list">
+          <li class="toc-item"><a href="#sec-6-1">1. นิยามและแนวคิดพื้นฐาน</a></li>
+          <li class="toc-item"><a href="#sec-6-2">2. องค์ประกอบสำคัญของระบบ ML</a></li>
+          <li class="toc-item"><a href="#sec-6-3">3. 3 ประเภทของการเรียนรู้</a></li>
+          <li class="toc-item"><a href="#sec-6-4">4. กระบวนการ ML Pipeline</a></li>
+          <li class="toc-item"><a href="#sec-6-5">5. Underfitting vs Overfitting</a></li>
+          <li class="toc-item"><a href="#sec-6-6">6. ตัวชี้วัดประสิทธิภาพ (Metrics)</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main Study Body -->
+      <div class="study-body">
+        <!-- Section 1 -->
+        <section id="sec-6-1" class="section-block" style="--ch-theme: var(--ch6-color);">
+          <h2 class="section-heading"><i>1.</i> นิยามและแนวคิดพื้นฐาน (Fundamental Paradigm)</h2>
+          <p>
+            <strong>Machine Learning (ML):</strong> คือการพัฒนาอัลกอริทึมและระบบที่สามารถ <em>"เรียนรู้รูปแบบ (Patterns) จากข้อมูลและยกระดับประสิทธิภาพได้เองจากประสบการณ์"</em> โดยที่มนุษย์ไม่ต้องคอยเขียนโปรแกรมกำหนดเงื่อนไขกฎเกณฑ์ตายตัวทีละข้อ
+          </p>
+
+          <div class="callout callout-important">
+            <div class="callout-title">💡 การเปลี่ยนกระบวนทัศน์ (Paradigm Shift)</div>
+            <p>
+              <strong>Traditional Programming:</strong> นำ <code>Data + Rules (มนุษย์คิดกฎ)</code> &rarr; <code>Output</code><br>
+              <strong>Machine Learning:</strong> นำ <code>Data + Output (คำตอบตัวอย่าง)</code> &rarr; <code>Model / Rules (คอมพิวเตอร์สร้างกฎเอง)</code>
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section id="sec-6-2" class="section-block">
+          <h2 class="section-heading"><i>2.</i> องค์ประกอบสำคัญของระบบ ML (Key Components)</h2>
+          <div class="feature-grid">
+            <div class="feature-box">
+              <div class="feature-box-title">📊 1. Data (ข้อมูล)</div>
+              <p>วัตถุดิบตั้งต้น ประกอบด้วย Features ($X$) และ Labels ($y$)</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title">⚙️ 2. Features (คุณลักษณะ)</div>
+              <p>ตัวแปรคุณสมบัติที่ใช้เป็น Input นำเข้าสู่โมเดลเพื่อใช้แยกแยะ</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title">📐 3. Model / Algorithm</div>
+              <p>โครงสร้างคณิตศาสตร์ที่ใช้เรียนรู้ เช่น Decision Tree, Neural Networks</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title">🎯 4. Loss Function</div>
+              <p>ฟังก์ชันเป้าหมายที่ใช้วัดความคลาดเคลื่อนระหว่างค่าทำนายกับค่าจริง</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title">🔄 5. Training Process</div>
+              <p>กระบวนการปรับปรุง Parameters/Weights เพื่อให้ค่า Loss ต่ำที่สุด</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section id="sec-6-3" class="section-block">
+          <h2 class="section-heading"><i>3.</i> ประเภทของการเรียนรู้ของเครื่อง (Types of ML)</h2>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>ประเภท</th>
+                  <th>ลักษณะข้อมูลนำเข้า</th>
+                  <th>เป้าหมายหลัก</th>
+                  <th>ตัวอย่างงานสำคัญ</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong style="color: #60a5fa;">Supervised Learning</strong></td>
+                  <td>มีป้ายกำกับเฉลย (Labeled Data) $(X, y)$</td>
+                  <td>สร้างฟังก์ชันทำนาย $y$ จาก $X$</td>
+                  <td>
+                    • <strong>Classification:</strong> จำแนกสแปม, ตรวจจับโรค<br>
+                    • <strong>Regression:</strong> พยากรณ์ราคาบ้าน, คาดการณ์ยอดขาย
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong style="color: #34d399;">Unsupervised Learning</strong></td>
+                  <td>ไม่มีป้ายกำกับ (Unlabeled Data) $(X)$</td>
+                  <td>ค้นหารูปแบบหรือโครงสร้างที่ซ่อนอยู่</td>
+                  <td>
+                    • <strong>Clustering:</strong> แบ่งกลุ่มพฤติกรรมลูกค้า (K-Means)<br>
+                    • <strong>Dimensionality Reduction:</strong> ลดมิติข้อมูล (PCA)
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong style="color: #f472b6;">Reinforcement Learning</strong></td>
+                  <td>สภาพแวดล้อมจำลอง (Agent + Environment)</td>
+                  <td>สะสมรางวัลสูงสุด (Maximize Cumulative Reward) ผ่านการลองผิดลองถูก</td>
+                  <td>
+                    AI เล่นเกม (AlphaGo), หุ่นยนต์เดินสองขา, ระบบขับเคลื่อนอัตโนมัติ
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section id="sec-6-4" class="section-block">
+          <h2 class="section-heading"><i>4.</i> วงจรการพัฒนา (ML Pipeline) &amp; การแบ่งชุดข้อมูล</h2>
+          <div class="formula-box" style="font-size: 0.95rem;">
+            Problem Definition &rarr; Data Collection &rarr; Data Preprocessing &amp; Feature Engineering &rarr; Model Training &rarr; Model Evaluation &rarr; Deployment
+          </div>
+
+          <h3 class="sub-heading">การแบ่งชุดข้อมูล (Data Splitting Strategy)</h3>
+          <div class="feature-grid">
+            <div class="feature-box">
+              <div class="feature-box-title" style="color: #60a5fa;">Training Set (~70%)</div>
+              <p>ใช้สำหรับสอนโมเดล ให้โมเดลปรับจูนพารามิเตอร์ภายใน (Weights/Biases)</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title" style="color: #fbbf24;">Validation Set (~15%)</div>
+              <p>ใช้สำหรับคัดเลือกสถาปัตยกรรมโมเดลและปรับจูน Hyperparameters</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title" style="color: #f87171;">Testing Set (~15%)</div>
+              <p>ข้อสอบชุดสุดท้ายที่ใช้ประเมินประสิทธิภาพ <strong>(ห้ามใช้เทรนเด็ดขาด เพื่อป้องกัน Data Leakage)</strong></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section id="sec-6-5" class="section-block">
+          <h2 class="section-heading"><i>5.</i> การสรุปผลทั่วไป, Underfitting และ Overfitting</h2>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>สภาวะ</th>
+                  <th>พฤติกรรมบนชุดข้อมูล</th>
+                  <th>สาเหตุหลัก</th>
+                  <th>แนวทางแก้ไข</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong style="color: #fbbf24;">Underfitting<br>(High Bias)</strong></td>
+                  <td>แม่นยำต่ำทั้งบน Training Set และ Testing Set</td>
+                  <td>โมเดลเรียบง่ายเกินไป ไม่สามารถจับรูปแบบความสัมพันธ์ของข้อมูลได้</td>
+                  <td>เพิ่มความซับซ้อนของโมเดล, เพิ่มจำนวนฟีเจอร์, ลด Regularization</td>
+                </tr>
+                <tr>
+                  <td><strong style="color: #f87171;">Overfitting<br>(High Variance)</strong></td>
+                  <td>แม่นยำสูงมากบน Training Set (ใกล้ 100%) แต่แม่นยำต่ำมากบน Testing Set</td>
+                  <td>โมเดลซับซ้อนเกินไป จนจดจำสัญญาณรบกวน (Noise) ในชุดฝึกสอน</td>
+                  <td>ลดความซับซ้อนของโมเดล, เพิ่มข้อมูลฝึก, ทำ Regularization (L1/L2), ทำ Pruning</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Section 6 -->
+        <section id="sec-6-6" class="section-block">
+          <h2 class="section-heading"><i>6.</i> ตัวชี้วัดประสิทธิภาพ (Evaluation Metrics)</h2>
+          
+          <h3 class="sub-heading">6.1 งาน Classification (Confusion Matrix)</h3>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Predicted Positive (ทายว่าเป็น)</th>
+                  <th>Predicted Negative (ทายว่าไม่เป็น)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Actual Positive (ของจริงเป็น)</strong></td>
+                  <td><strong style="color: #34d399;">True Positive (TP)</strong></td>
+                  <td><strong style="color: #f87171;">False Negative (FN)</strong> (หลุดตรวจไม่พบ)</td>
+                </tr>
+                <tr>
+                  <td><strong>Actual Negative (ของจริงไม่เป็น)</strong></td>
+                  <td><strong style="color: #f87171;">False Positive (FP)</strong> (ทายเกิน/แจ้งเตือนผิด)</td>
+                  <td><strong style="color: #34d399;">True Negative (TN)</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="feature-grid">
+            <div class="feature-box">
+              <div class="feature-box-title">Accuracy</div>
+              <p><code>(TP + TN) / (TP + TN + FP + FN)</code> วัดความถูกต้องภาพรวม เหมาะกับข้อมูลที่สมดุล (Balanced Data)</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title">Precision</div>
+              <p><code>TP / (TP + FP)</code> ความถูกต้องเมื่อทายว่าเป็นบวก เน้นลด FP (เช่น ระบบกรองสแปม ไม่ให้เมลสำคัญตกถังขยะ)</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title">Recall (Sensitivity)</div>
+              <p><code>TP / (TP + FN)</code> ความครอบคลุมในการตรวจจับ เน้นลด FN (เช่น การตรวจคัดกรองโรคมะเร็ง ห้ามหลุดตรวจไม่พบ)</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-title">F1-Score</div>
+              <p><code>2 * (Precision * Recall) / (Precision + Recall)</code> ค่าเฉลี่ยฮาร์มอนิก เหมาะสำหรับข้อมูลไม่สมดุล (Imbalanced Data)</p>
+            </div>
+          </div>
+
+          <h3 class="sub-heading">6.2 งาน Regression &amp; Clustering</h3>
+          <div class="callout callout-tip">
+            <p>
+              • <strong>MAE:</strong> ค่าเฉลี่ยผลต่างสัมบูรณ์ ตีความง่ายตรงไปตรงมา<br>
+              • <strong>MSE:</strong> ยกกำลังสองของผลต่าง ลงโทษข้อผิดพลาดขนาดใหญ่<br>
+              • <strong>RMSE:</strong> ถอดรากของ MSE ได้หน่วยเดียวกับตัวแปรจริง<br>
+              • <strong>R²:</strong> สัดส่วนความแปรปรวนที่โมเดลอธิบายได้ (ใกล้ 1 คือดีเยี่ยม)<br>
+              • <strong>Silhouette Score:</strong> วัดประสิทธิภาพการจัดกลุ่ม (Clustering) ช่วงค่า <code>[-1, 1]</code> (ยิ่งใกล้ +1 ยิ่งเกาะกลุ่มแน่นและแยกขาดจากกลุ่มอื่น)
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- TAB 2: INTERACTIVE QUIZ -->
+    <div id="tab-quiz-content" style="display: none;">
+      <div id="chapter-quiz-container"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-nav">
+      <a href="index.html">หน้าแรก</a>
+      <a href="chapter06.html">บทที่ 6 การเรียนรู้ของเครื่อง</a>
+      <a href="chapter07.html">บทที่ 7 ต้นไม้ตัดสินใจ</a>
+      <a href="chapter08.html">บทที่ 8 โครงข่ายประสาทเทียม</a>
+      <a href="chapter09.html">บทที่ 9 Modern AI &amp; Generative AI</a>
+      <a href="chapter10.html">บทที่ 10 จริยธรรมใน AI</a>
+    </div>
+    <p>สรุปและแบบทดสอบรายวิชาปัญญาประดิษฐ์ • บทที่ 6 การเรียนรู้ของเครื่อง</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/quiz_data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize Quiz for Chapter 6
+      new QuizEngine('chapter-quiz-container', QUIZ_DATABASE.chapter06);
+
+      // Handle direct tab link via URL parameter ?tab=quiz
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('tab') === 'quiz') {
+        const quizBtn = document.querySelector('.tab-btn[data-tab="quiz"]');
+        if (quizBtn) quizBtn.click();
+      }
+    });
+  </script>
+</body>
+</html>
