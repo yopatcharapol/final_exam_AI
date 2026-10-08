@@ -35,3 +35,11 @@ $RECYCLE.BIN/
 *.zip
 **/cifar10_original/
 **/cifar10_images/
+
+# Private course materials & study documents (Kept locally only, not tracked by git)
+สไลด์/
+เอกสาร/
+แลบ/
+notes/
+.agents/
+skills-lock.json
