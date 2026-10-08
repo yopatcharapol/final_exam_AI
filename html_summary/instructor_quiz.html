@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คลังข้อสอบจริงจากอาจารย์ (Official In-Class Quizzes) | 45 ข้อพร้อมเฉลย</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-brand-badge" style="background: linear-gradient(135deg, #f43f5e 0%, #ec4899 100%);">EX</span>
+        <span>AI Study Portal</span>
+      </a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html">หน้าแรก</a></li>
+        <li class="nav-item"><a href="chapter06.html">บทที่ 6 (ML)</a></li>
+        <li class="nav-item"><a href="chapter07.html">บทที่ 7 (Tree)</a></li>
+        <li class="nav-item"><a href="chapter08.html">บทที่ 8 (ANN)</a></li>
+        <li class="nav-item"><a href="chapter09.html">บทที่ 9 (Modern AI)</a></li>
+        <li class="nav-item"><a href="chapter10.html">บทที่ 10 (Ethics)</a></li>
+        <li class="nav-item"><a href="instructor_quiz.html" class="active nav-instructor-badge">⭐ ควิซอาจารย์ (45 ข้อ)</a></li>
+      </ul>
+      <div class="nav-controls">
+        <button id="theme-toggle-btn" class="btn-icon" title="เปลี่ยนธีม">☀️</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-wrapper">
+    <!-- Header -->
+    <header class="chapter-header" style="text-align: center; border-bottom: none; margin-bottom: 1.5rem;">
+      <div class="breadcrumb" style="justify-content: center;">
+        <a href="index.html">หน้าแรก</a> <span>/</span>
+        <span>คลังข้อสอบจริงจากห้องเรียน</span> <span>/</span>
+        <span>บทที่ 6 - 10</span>
+      </div>
+      <span class="card-badge" style="background: rgba(244, 63, 94, 0.15); color: #fb7185; border-color: #f43f5e;">
+        🎯 In-Class Official Exam Bank
+      </span>
+      <h1 class="chapter-main-title" style="margin-top: 0.75rem;">
+        คลังข้อสอบจริงจากอาจารย์ <span class="hero-gradient-text">(45 ข้อพร้อมเฉลยละเอียด)</span>
+      </h1>
+      <p class="chapter-lead" style="margin: 0 auto; max-width: 720px;">
+        รวบรวมแบบทดสอบท้ายคาบตัวจริงที่อาจารย์ให้ออกสอบ ครอบคลุมทั้ง 5 บท (บทที่ 6 - 10) พร้อมตรวจคำตอบแบบเรียลไทม์ และแผนภาพคำนวณ Feature Map ในบทที่ 9!
+      </p>
+    </header>
+
+    <!-- Filter Category Pills -->
+    <div style="display: flex; justify-content: center;">
+      <div class="filter-pills-bar">
+        <button class="filter-pill active" data-category="all">ทั้งหมด (45 ข้อ)</button>
+        <button class="filter-pill" data-category="ch6">บทที่ 6: ML (9 ข้อ)</button>
+        <button class="filter-pill" data-category="ch7">บทที่ 7: Decision Tree (9 ข้อ)</button>
+        <button class="filter-pill" data-category="ch8">บทที่ 8: Neural Network (9 ข้อ)</button>
+        <button class="filter-pill" data-category="ch9">บทที่ 9: CNN (9 ข้อ)</button>
+        <button class="filter-pill" data-category="ch10">บทที่ 10: AI Ethics (9 ข้อ)</button>
+      </div>
+    </div>
+
+    <!-- Quiz Engine Container -->
+    <div id="instructor-quiz-root"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-nav">
+      <a href="index.html">หน้าแรก</a>
+      <a href="chapter06.html">บทที่ 6 การเรียนรู้ของเครื่อง</a>
+      <a href="chapter07.html">บทที่ 7 ต้นไม้ตัดสินใจ</a>
+      <a href="chapter08.html">บทที่ 8 โครงข่ายประสาทเทียม</a>
+      <a href="chapter09.html">บทที่ 9 Modern AI &amp; Generative AI</a>
+      <a href="chapter10.html">บทที่ 10 จริยธรรมใน AI</a>
+      <a href="instructor_quiz.html">ควิซอาจารย์ (45 ข้อ)</a>
+    </div>
+    <p>แบบทดสอบในชั้นเรียนวิชาปัญญาประดิษฐ์ (Artificial Intelligence) • จัดทำขึ้นเพื่อการฝึกฝนและเตรียมสอบจริง</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/quiz_data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let currentQuizInstance = null;
+
+    function loadQuizCategory(category) {
+      let questions = [];
+      if (category === 'all') {
+        questions = QUIZ_DATABASE.allInstructorQuestions;
+      } else if (QUIZ_DATABASE.instructorQuizzes[category]) {
+        questions = QUIZ_DATABASE.instructorQuizzes[category];
+      } else {
+        questions = QUIZ_DATABASE.allInstructorQuestions;
+      }
+
+      currentQuizInstance = new QuizEngine('instructor-quiz-root', questions);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initial load: All 45 questions
+      loadQuizCategory('all');
+
+      // Filter button event listeners
+      const filterPills = document.querySelectorAll('.filter-pill');
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          filterPills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          const category = pill.getAttribute('data-category');
+          loadQuizCategory(category);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

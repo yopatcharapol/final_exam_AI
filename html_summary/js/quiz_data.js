@@ -1,6 +1,8 @@
 /**
  * AI COURSE QUESTION BANK (CHAPTERS 6 - 10)
- * 50 Comprehensive Exam & Review Questions with In-Depth Explanations
+ * Includes:
+ * 1. Comprehensive Exam & Review Questions (50 Questions)
+ * 2. Official In-Class Quizzes from Instructor (45 Questions)
  */
 
 const QUIZ_DATABASE = {
@@ -732,8 +734,695 @@ const QUIZ_DATABASE = {
       correctIndex: 1,
       explanation: "AI ไม่มีภาระรับผิดชอบทางกฎหมาย ความรับผิดชอบตกอยู่กับนักพัฒนาเสมอ นักพัฒนาจึงต้องทำ Code Review ตรวจสอบบั๊กและช่องโหว่ด้านความปลอดภัยทุกครั้ง รวมถึงห้ามส่งข้อมูลความลับและข้อมูลส่วนบุคคลเข้าสู่ Public AI เพราะขัดต่อ PDPA และความปลอดภัยขององค์กร"
     }
-  ]
+  ],
+
+  // ==============================================================
+  // 🌟 OFFICIAL INSTRUCTOR IN-CLASS QUIZZES (45 REAL EXAM QUESTIONS)
+  // ==============================================================
+  instructorQuizzes: {
+    // ------------------------------------------------------------
+    // CH6: Introduction to Machine Learning (9 Questions)
+    // ------------------------------------------------------------
+    ch6: [
+      {
+        id: "ins_ch6_q1",
+        chapter: 6,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 6",
+        question: "1. การ Validation ควรทำในการเรียนรู้แบบใด",
+        options: [
+          "Supervised learning",
+          "Unsupervised learning",
+          "ไม่ควรทำทั้งคู่",
+          "ควรทำทั้งคู่"
+        ],
+        correctIndex: 3,
+        explanation: "การ Validation มีความสำคัญและควรทำในทั้ง Supervised learning (ใช้วัดความแม่นยำและป้องกัน Overfitting) และ Unsupervised learning (ใช้วัดคุณภาพการจัดกลุ่ม เช่น Silhouette Score หรือความเสถียรของคลัสเตอร์)"
+      },
+      {
+        id: "ins_ch6_q2",
+        chapter: 6,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 6",
+        question: "2. ข้อใดไม่ใช่ การประยุกต์ใช้ Machine learning ในการแก้ปัญหา",
+        options: [
+          "คาดการณ์น้ำท่วม",
+          "ทำนายราคาบ้าน",
+          "พยากรณ์ราคาหุ้น",
+          "แก้ปัญหา Sudoku"
+        ],
+        correctIndex: 3,
+        explanation: "การแก้ปัญหา Sudoku จัดเป็นงานค้นหาเชิงตรรกะแบบ Constraint Satisfaction Problem (CSP) หรือ Search Algorithm ซึ่งมีกฎตายตัว ไม่ใช่งานที่ต้องเรียนรู้แพทเทิร์นทางสถิติจากข้อมูลแบบ Machine Learning"
+      },
+      {
+        id: "ins_ch6_q3",
+        chapter: 6,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 6",
+        question: "3. Supervised learning จำเป็นต้องมีองค์ประกอบใด",
+        options: [
+          "output data",
+          "ถูกทุกข้อ",
+          "input data",
+          "labeled data"
+        ],
+        correctIndex: 1,
+        explanation: "Supervised Learning จำเป็นต้องมีครบทุกองค์ประกอบ ทั้ง input data (Features), output data (Target) และ labeled data (ป้ายกำกับเฉลย) เพื่อให้โมเดลใช้เรียนรู้ความสัมพันธ์"
+      },
+      {
+        id: "ins_ch6_q4",
+        chapter: 6,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 6",
+        question: "4. Unsupervised learning ไม่ จำเป็นต้องมีองค์ประกอบใด",
+        options: [
+          "input data",
+          "labeled data",
+          "ถูกทุกข้อ",
+          "output data"
+        ],
+        correctIndex: 1,
+        explanation: "Unsupervised learning คือการเรียนรู้ที่ไม่มีเฉลยกำกับ ดังนั้นจึง 'ไม่จำเป็นต้องมี labeled data' โมเดลจะสกัดรูปแบบจาก Input data ได้เอง"
+      },
+      {
+        id: "ins_ch6_q5",
+        chapter: 6,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 6",
+        question: "5. ระบบอีเมลตรวจพบว่าอีเมลฉบับหนึ่งเป็น Spam และจริง ๆ แล้วอีเมลฉบับนั้นก็เป็น Spam ค่าที่ได้เรียกว่าอะไร",
+        options: [
+          "True Positive (TP)",
+          "False Negative (FN)",
+          "False Positive (FP)",
+          "True Negative (TN)"
+        ],
+        correctIndex: 0,
+        explanation: "เมื่อคลาสเป้าหมายคือ Spam (Positive) และระบบทำนายว่าเป็น Spam ตรงกับความเป็นจริง จึงนับเป็น True Positive (TP)"
+      },
+      {
+        id: "ins_ch6_q6",
+        chapter: 6,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 6",
+        question: "6. ข้อใด ไม่ใช่ วิธีการเรียนรู้ของ Machine learning ในปัจจุบัน",
+        options: [
+          "Supervised learning",
+          "Semisupervised learning",
+          "Unsupervised learning",
+          "Resupervised learning"
+        ],
+        correctIndex: 3,
+        explanation: "วิธีการเรียนรู้ใน ML มี Supervised, Semi-supervised, Unsupervised, Reinforcement, และ Self-supervised learning ไม่มีคำว่า 'Resupervised learning'"
+      },
+      {
+        id: "ins_ch6_q7",
+        chapter: 6,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 6",
+        question: "7. ข้อใดให้ความหมายของ Overfit ได้ดีที่สุด",
+        options: [
+          "เกิดขึ้นกับโมเดลที่เรียนรู้จากข้อมูลเพียง 1 iteration",
+          "โมเดลที่ได้นำไปใช้จริงไม่ได้",
+          "ข้อมูลมีปริมาณเยอะเกินไป",
+          "โมเดลที่ได้เรียนรู้ได้ดี"
+        ],
+        correctIndex: 1,
+        explanation: "Overfitting คือภาวะที่โมเดลจดจำข้อมูลชุดฝึกสอนได้ดีเลิศจนจำแม้กระทั่ง Noise แต่เมื่อนำไปใช้จริงกับข้อมูลที่ไม่เคยเห็น ประสิทธิภาพจะแย่มากจนไม่สามารถนำไปใช้งานจริงได้"
+      },
+      {
+        id: "ins_ch6_q8",
+        chapter: 6,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 6",
+        question: "8. กำหนดให้ Positive class (Active class) = “เป็นโรค” และ Negative class = “ไม่เป็นโรค” ในชุดข้อมูลมีคน ไม่เป็นโรค 990 คน และ เป็นโรค 10 คน โมเดลทำนายทุกคนว่า “ไม่เป็นโรค” ทั้งหมด ข้อใดอธิบายสถานการณ์นี้ได้ถูกต้องที่สุด?",
+        options: [
+          "TN สูง แต่ Sensitivity ต่ำ",
+          "TP สูง และ Sensitivity สูง",
+          "TN สูง และ Accuracy สูง",
+          "TP สูง แต่ Accuracy ต่ำ"
+        ],
+        correctIndex: 0,
+        explanation: "โมเดลทายทุกคนว่าไม่เป็นโรค ทำให้คนไม่เป็นโรค 990 คนถูกทายถูกหมด (TN = 990 ถือว่าสูงมาก) แต่คนที่ป่วย 10 คน โมเดลทายไม่ถูกเลยแม้แต่คนเดียว (TP = 0) ส่งผลให้ Sensitivity (Recall) = TP / (TP + FN) = 0 / 10 = 0% ซึ่งต่ำมากที่สุด"
+      },
+      {
+        id: "ins_ch6_q9",
+        chapter: 6,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 6",
+        question: "9. ข้อใดกล่าวถูกต้องเกี่ยวกับ Machine learning ได้ถูกต้อง",
+        options: [
+          "ทุกสิ่งที่เป็นเครื่องมือ เช่น สว่านไฟฟ้า",
+          "บางส่วนของ Machine learning ไม่เกี่ยวข้องกับ AI",
+          "ต้องมีการเรียนรู้จากข้อมูลเพื่อนำไปใช้ตัดสินใจกับข้อมูลที่ไม่เคยเห็น",
+          "Adversarial Search จัดอยู่ในกลุ่มของ Machine Learning"
+        ],
+        correctIndex: 2,
+        explanation: "แก่นแท้ของ Machine Learning คือการเรียนรู้รูปแบบจากข้อมูลตัวอย่าง เพื่อนำไปประยุกต์ใช้ในการตัดสินใจหรือทำนายผลกับข้อมูลชุดใหม่ที่ไม่เคยเห็นมาก่อน (Generalization)"
+      }
+    ],
+
+    // ------------------------------------------------------------
+    // CH7: Decision Tree (9 Questions)
+    // ------------------------------------------------------------
+    ch7: [
+      {
+        id: "ins_ch7_q1",
+        chapter: 7,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 7",
+        question: "1. การใช้งานคำสั่ง DecisionTreeClassifier เพื่อสร้างโมเดล Decision Tree การกำหนด maxdepth มีผลอย่างไรต่อการโมเดล",
+        options: [
+          "ความถูกต้องของการ validation แปรผกผันกับจำนวน maxdepth",
+          "ความถูกต้องของการ validation แปรผันตรงกับจำนวน maxdepth",
+          "เกิด overfit ง่ายขึ้น",
+          "กำหนดจำนวน Class ตามจำนวนของ maxdepth"
+        ],
+        correctIndex: 2,
+        explanation: "การกำหนด max_depth ให้ลึกขึ้นหรือปล่อยให้ต้นไม้แตกกิ่งไม่จำกัด จะทำให้ต้นไม้ซับซ้อนเกินไปและจดจำสัญญาณรบกวน ส่งผลให้เกิด Overfit ได้ง่ายขึ้น"
+      },
+      {
+        id: "ins_ch7_q2",
+        chapter: 7,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 7",
+        question: "2. คำสั่ง fit หมายถึงอะไร ในกรณี DecisionTreeClassifier",
+        options: [
+          "พยากรณ์ผลลัพธ์ของโมเดลขากข้อมูล Validation",
+          "Train โมเดลจากข้อมูล Training",
+          "สร้างโมเดล DecisionTreeClassifier",
+          "แบ่งข้อมูล Training และ Validation"
+        ],
+        correctIndex: 1,
+        explanation: "ใน Scikit-Learn คำสั่ง `.fit(X_train, y_train)` ทำหน้าที่นำชุดข้อมูลฝึกสอนมาสร้างและเรียนรู้พารามิเตอร์ของโมเดล (Train)"
+      },
+      {
+        id: "ins_ch7_q3",
+        chapter: 7,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 7",
+        question: "3. Criterion Function หมายถึงสิ่งใดใน Decision Tree",
+        options: [
+          "Optimization Function",
+          "Transfer Function",
+          "Activation Function",
+          "Gradient Descent"
+        ],
+        correctIndex: 0,
+        explanation: "Criterion Function (เช่น Gini Impurity หรือ Entropy) ทำหน้าที่เป็น Optimization Function ในการประเมินและเลือกจุดตัดที่ดีที่สุดที่ช่วยลดความไม่บริสุทธิ์ได้สูงสุด"
+      },
+      {
+        id: "ins_ch7_q4",
+        chapter: 7,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 7",
+        question: "4. คำสั่งใด ใช้ในการแสดงภาพโครงสร้างของโมเดล Decision Tree กำหนดให้ model = DecisionTreeClassifier",
+        options: [
+          "plot_tree(mode)",
+          "model.plot_tree()",
+          "plot(mode)",
+          "model.plot()"
+        ],
+        correctIndex: 0,
+        explanation: "ในโมดูล `sklearn.tree` จะใช้ฟังก์ชัน `plot_tree(model)` ในการวาดแผนภาพโครงสร้างกิ่งก้านของต้นไม้ตัดสินใจ"
+      },
+      {
+        id: "ins_ch7_q5",
+        chapter: 7,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 7",
+        question: "5. Decision Tree มี Time Complexity ในการตัดสินใจ กรณี Worst Case เท่ากับเท่าไหร่",
+        options: [
+          "O(n log n)",
+          "O(n)",
+          "O(n^2) ยกกำลังสอง",
+          "O(log n)"
+        ],
+        correctIndex: 1,
+        explanation: "กรณี Worst Case เกิดขึ้นเมื่อต้นไม้ไม่สมดุลอย่างรุนแรง (Degenerate Tree/เอียงข้างเดียวเป็นเส้นตรง) ทำให้ความลึกเท่ากับจำนวนตัวอย่าง n ส่งผลให้เวลาในการตัดสินใจค้นหาเป็น O(n)"
+      },
+      {
+        id: "ins_ch7_q6",
+        chapter: 7,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 7",
+        question: "6. ข้อจำกัดด้านความไม่เสถียรของโมเดล Decision Tree คือ",
+        options: [
+          "กรณีข้อมูล train ในแต่ละคลาสมีจำนวนไม่เท่ากัน โมเดล Decision Tree จะให้ความสำคัญกับคลาสที่มีจำนวนข้อมูลเยอะกว่า",
+          "ถูกทุกข้อ",
+          "กรณีมี noise เยอะ โมเดล Decision Tree จะเกิด overfit",
+          "ไม่เสถียร โมเดลมีการอัพเดทตลอด หาก node ที่ใช้ในการ train ทำให้เกิด error"
+        ],
+        correctIndex: 1,
+        explanation: "Decision Tree มีข้อจำกัดหลายด้าน ทั้งเรื่องความไวต่อคลาสที่ไม่สมดุล การเกิด Overfit ง่ายเมื่อเจอ Noise และความไม่เสถียรเมื่อข้อมูลฝึกสอนเปลี่ยนแปลงเพียงเล็กน้อย"
+      },
+      {
+        id: "ins_ch7_q7",
+        chapter: 7,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 7",
+        question: "7. Decision Tree มีลักษณะโครงสร้างข้อมูลเป็นลักษณะใด",
+        options: [
+          "Set",
+          "Tuple",
+          "Tree",
+          "Graph"
+        ],
+        correctIndex: 2,
+        explanation: "มีโครงสร้างข้อมูลเป็นแบบ Tree (ต้นไม้ตัดสินใจลำดับชั้น) ประกอบด้วย Root Node, Internal Nodes และ Leaf Nodes"
+      },
+      {
+        id: "ins_ch7_q8",
+        chapter: 7,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 7",
+        question: "8. จุดเด่นของ Decision Tree คือ",
+        options: [
+          "มีความสามารถ Generalization ที่สูง",
+          "การจำแนกข้อมูลแบบ Nonlinear ได้ดี",
+          "ทุกข้อเป็นจุดเด่นของ Decision Tree",
+          "เกิด Overfit ได้ยาก"
+        ],
+        correctIndex: 1,
+        explanation: "Decision Tree มีจุดเด่นสำคัญคือการจำแนกข้อมูลที่มีความสัมพันธ์แบบไม่เป็นเส้นตรง (Nonlinear) ได้ดีมาก ผ่านการแบ่งพื้นที่ด้วยเงื่อนไขตามแกนต่างๆ ซ้อนกันหลายชั้น"
+      },
+      {
+        id: "ins_ch7_q9",
+        chapter: 7,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 7",
+        question: "9. Decision Tree มี Time Complexity ในการตัดสินใจ กรณี Average Case เท่ากับเท่าไหร่",
+        options: [
+          "O(n log n)",
+          "O(n)",
+          "O(n^2) ยกกำลังสอง",
+          "O(log n)"
+        ],
+        correctIndex: 3,
+        explanation: "ในกรณีทั่วไปที่ต้นไม้มีการกระจายตัวที่สมดุล (Balanced Tree) ความลึกของต้นไม้จะอยู่ที่ระดับ log2(n) ทำให้การตัดสินใจไล่จาก Root ลงสู่ Leaf มี Time Complexity เฉลี่ยเป็น O(log n)"
+      }
+    ],
+
+    // ------------------------------------------------------------
+    // CH8: Artificial Neural Network (9 Questions)
+    // ------------------------------------------------------------
+    ch8: [
+      {
+        id: "ins_ch8_q1",
+        chapter: 8,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 8",
+        question: "1. คำสั่ง np.random.shuffle(x) มีจุดประสงค์เพื่อจัดการข้อมูล x อย่างไร",
+        options: [
+          "สุ่มข้อมูลเท่ากับจำนวนของ x โดยเลือกจากค่าที่อยู่ใน x แต่ละค่า",
+          "สุ่มข้อมูลจำนวนเต็มจาก 1 ถึง จำนวนของ x เท่ากับ x จำนวน",
+          "เลือกเล่นเพลงแบบสุ่มจาก playlist",
+          "สลับลำดับข้อมูลของ x แบบสุ่ม"
+        ],
+        correctIndex: 3,
+        explanation: "`np.random.shuffle(x)` สลับลำดับสมาชิกภายในอาร์เรย์ x แบบสุ่ม (In-place random permutation) นิยมใช้ก่อนการแบ่งข้อมูลหรือก่อนป้อนเข้าเทรนในแต่ละ Epoch"
+      },
+      {
+        id: "ins_ch8_q2",
+        chapter: 8,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 8",
+        question: "2. Activation Function ทำหน้าที่ใด ใน Artificial Neural Network",
+        options: [
+          "ตัดสินใจว่า input นั้น ๆ ควรจะอยู่ใน class ใด",
+          "คำนวณผลรวมระหว่าง input และ weight",
+          "เพิ่มหรือลดค่าความคาดเคลื่อนของผลลัพธ์สุดท้าย ในปริมาณที่ยอมรับได้",
+          "เป็นตัวแปรที่ใช้ในการคูณกับ input แต่ละตัว"
+        ],
+        correctIndex: 0,
+        explanation: "Activation Function รับค่าผลรวมเชิงเส้นมาแปลงและตัดสินใจว่าสัญญาณจะถูกส่งออกไปอย่างไร เช่น แปลงเป็นค่าความน่าจะเป็นเพื่อตัดสินใจว่าอินพุตควรอยู่ในคลาสใด"
+      },
+      {
+        id: "ins_ch8_q3",
+        chapter: 8,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 8",
+        question: "3. Function ใด มีลักษณะการจำแนกข้อมูล (Classification) แตกต่างจากข้ออื่น",
+        options: [
+          "Softmax function",
+          "Linear function",
+          "Sigmoid function",
+          "ReLU function"
+        ],
+        correctIndex: 1,
+        explanation: "Linear function เป็นฟังก์ชันเชิงเส้น f(z) = z ซึ่งไม่สามารถสร้างเส้นแบ่งขอบเขตแบบไม่เชิงเส้น (Nonlinear Decision Boundaries) ได้ แตกต่างจากฟังก์ชันกระตุ้นตัวอื่นที่เป็น Nonlinear"
+      },
+      {
+        id: "ins_ch8_q4",
+        chapter: 8,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 8",
+        question: "4. ในการใช้ matplotlib ใช้คำสั่ง plot ภายในฟังก์ชัน มีการส่งตัวแปร marker หากกำหนดให้ค่า marker=\"s\" จะทำให้การแสดงผลกราฟมีลักษณะเป็นอย่างไร",
+        options: [
+          "แทนที่ข้อมูลด้วยจุด",
+          "แทนที่ข้อมูลด้วยวงกลม",
+          "แทนที่ข้อมูลด้วยสีเหลี่ยม",
+          "แทนที่ข้อมูลด้วยดาว"
+        ],
+        correctIndex: 2,
+        explanation: "ใน Matplotlib ตัวแปร `marker='s'` หมายถึง Square (รูปสี่เหลี่ยม), ส่วน `'o'` คือวงกลม, `'.'` คือจุด และ `'*'` คือรูปดาว"
+      },
+      {
+        id: "ins_ch8_q5",
+        chapter: 8,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 8",
+        question: "5. กำหนดให้ x เป็นข้อมูลจาก dataframe หากเรียกใช้คำสั่ง x.unique() ผลลัพธ์ที่ได้คือข้อใด",
+        options: [
+          "แสดงข้อมูล x เฉพาะข้อมูลที่แตกต่าง",
+          "แสดงข้อมูล x เฉพาะ dimension แรก",
+          "แสดงข้อมูล x เฉพาะ dimension สุดท้าย",
+          "แสดงข้อมูล x ทั้งหมด"
+        ],
+        correctIndex: 0,
+        explanation: "คำสั่ง `.unique()` ใน Pandas DataFrame/Series จะแสดงเฉพาะค่าที่แตกต่างและไม่ซ้ำกันของคอลัมน์นั้น"
+      },
+      {
+        id: "ins_ch8_q6",
+        chapter: 8,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 8",
+        question: "6. Function ใด มีลักษณะของฟังก์ชันคล้ายกับ Softmax function มากที่สุด",
+        options: [
+          "Sigmoid function",
+          "Linear function",
+          "LeakyReLU function",
+          "ReLU function"
+        ],
+        correctIndex: 0,
+        explanation: "Sigmoid function มีสูตรทางคณิตศาสตร์ที่เป็นรากฐานเดียวกับ Softmax โดย Sigmoid คือ Softmax ในกรณีที่มีเพียง 2 คลาส (Binary Classification) และให้ค่าอยู่ในช่วง [0, 1] เช่นเดียวกัน"
+      },
+      {
+        id: "ins_ch8_q7",
+        chapter: 8,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 8",
+        question: "7. Transfer Function ทำหน้าที่ใด ใน Artificial Neural Network",
+        options: [
+          "ตัดสินใจว่า input นั้น ๆ ควรจะอยู่ใน class ใด",
+          "เพิ่มหรือลดค่าความคาดเคลื่อนของผลลัพธ์สุดท้าย ในปริมาณที่ยอมรับได้",
+          "คำนวณผลรวมระหว่าง input และ weight",
+          "เป็นตัวแปรที่ใช้ในการคูณกับ input แต่ละตัว"
+        ],
+        correctIndex: 2,
+        explanation: "Transfer Function หรือ Net Input Function ทำหน้าที่นำ Input แต่ละตัวมาคูณกับ Weight แล้วบวกเข้าด้วยกันพร้อมบวก Bias: z = sum(w_i * x_i) + b"
+      },
+      {
+        id: "ins_ch8_q8",
+        chapter: 8,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 8",
+        question: "8. Artificial Neural Network มีหลักการทำงานเลียนแบบสิ่งใด",
+        options: [
+          "สมองมนุษย์",
+          "คณิตศาสตร์",
+          "จิตใจมนุษย์",
+          "ธรรมชาติ"
+        ],
+        correctIndex: 0,
+        explanation: "Artificial Neural Network (ANN) จำลองโครงสร้างและการส่งสัญญาณผ่านเซลล์ประสาทและจุดประสานประสาท (Synapse) จากสมองของมนุษย์"
+      },
+      {
+        id: "ins_ch8_q9",
+        chapter: 8,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 8",
+        question: "9. Bias ทำหน้าที่ใด ใน Artificial Neural Network",
+        options: [
+          "คำนวณผลรวมระหว่าง input และ weight",
+          "เพิ่มหรือลดค่าความคาดเคลื่อนของผลลัพธ์สุดท้าย ในปริมาณที่ยอมรับได้",
+          "เป็นตัวแปรที่ใช้ในการคูณกับ input แต่ละตัว",
+          "ตัดสินใจว่า input นั้น ๆ ควรจะอยู่ใน class ใด"
+        ],
+        correctIndex: 1,
+        explanation: "Bias เป็นค่าน้ำหนักคงที่ที่ช่วยเลื่อนระดับการกระตุ้น (Offset/Shift) ปรับเพิ่มหรือลดระดับค่าความคลาดเคลื่อนที่ยอมรับได้ เพื่อให้โมเดลยืดหยุ่นและไม่ถูกล็อกให้ผ่านจุดกำเนิด"
+      }
+    ],
+
+    // ------------------------------------------------------------
+    // CH9: Modern AI & CNN (9 Questions)
+    // ------------------------------------------------------------
+    ch9: [
+      {
+        id: "ins_ch9_q1",
+        chapter: 9,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 9 (CNN)",
+        question: "1. Dropout Layer ช่วยแก้ปัญหาใดระหว่างการ train",
+        options: [
+          "เพิ่มขนาด feature map ให้ใหญ่ขึ้น",
+          "ลดจำนวน epoch ที่ต้องการ train",
+          "สุ่มปิด neuron บางส่วนเพื่อป้องกัน overfitting",
+          "เร่งความเร็วใน inference โดยลด computation"
+        ],
+        correctIndex: 2,
+        explanation: "Dropout ทำการสุ่มปิด (Deactivate) นิวรอนบางส่วนในระหว่างเทรน เพื่อป้องกันไม่ให้นิวรอนปรับตัวเกาะกลุ่มตามกันมากเกินไป ช่วยแก้ปัญหา Overfitting ได้อย่างยอดเยี่ยม"
+      },
+      {
+        id: "ins_ch9_q2",
+        chapter: 9,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 9 (CNN)",
+        question: "2. ค่าในการคูณ Feature Map นี้มีค่าเท่ากับเท่าไหร่ (ตามรูปด้านล่าง)",
+        hasCustomDiagram: true,
+        diagramData: {
+          inputMatrix: [
+            [1, 2, 3],
+            [4, 0, 1],
+            [7, 1, 9]
+          ],
+          filterMatrix: [
+            [1, 0, -1],
+            [1, 0, -1],
+            [1, 0, -1]
+          ]
+        },
+        options: [
+          "0",
+          "1",
+          "-1",
+          "-6"
+        ],
+        correctIndex: 2,
+        explanation: "การคำนวณ Convolution แบบคูณจุดต่อจุดแล้วรวมผล:\nแถวที่ 1: (1 * 1) + (2 * 0) + (3 * -1) = 1 - 3 = -2\nแถวที่ 2: (4 * 1) + (0 * 0) + (1 * -1) = 4 - 1 = +3\nแถวที่ 3: (7 * 1) + (1 * 0) + (9 * -1) = 7 - 9 = -2\nผลรวมทั้งหมด = (-2) + (+3) + (-2) = -1"
+      },
+      {
+        id: "ins_ch9_q3",
+        chapter: 9,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 9 (CNN)",
+        question: "3. Max Pooling Layer มีจุดประสงค์หลักคืออะไร",
+        options: [
+          "ลดขนาด feature map และเก็บค่าที่โดดเด่นที่สุดในแต่ละ region",
+          "เพิ่มจำนวน parameter ใน network",
+          "เพิ่มความละเอียดของ feature map",
+          "แปลง pixel ให้เป็นค่า binary 0 หรือ 1"
+        ],
+        correctIndex: 0,
+        explanation: "Max Pooling ทำหน้าที่ลดมิติข้อมูล (Downsampling) โดยคัดเลือกเอาเฉพาะค่าสูงสุดในแต่ละหน้าต่างย่อย ช่วยลดภาระการคำนวณและเก็บรักษาฟีเจอร์เด่นไว้"
+      },
+      {
+        id: "ins_ch9_q4",
+        chapter: 9,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 9 (CNN)",
+        question: "4. Transfer Learning ในบริบทของ CNN หมายถึงอะไร",
+        options: [
+          "การนำ model ที่ฝึกบน dataset ใหญ่ (เช่น ImageNet) มาปรับใช้กับงานใหม่",
+          "การแปลง model ให้รองรับภาษาอื่น",
+          "การย้ายไฟล์ model ไปยัง server ใหม่",
+          "การ transfer gradient จาก layer ท้ายไปยัง layer ต้น"
+        ],
+        correctIndex: 0,
+        explanation: "Transfer Learning คือการนำโมเดลที่ผ่านการฝึกฝนบนชุดข้อมูลขนาดใหญ่มาก่อนแล้ว มาปรับแต่งส่วนปลาย (Fine-tuning) เพื่อใช้งานกับงานใหม่ของเรา ช่วยประหยัดเวลาและทรัพยากร"
+      },
+      {
+        id: "ins_ch9_q5",
+        chapter: 9,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 9 (CNN)",
+        question: "5. Batch Normalization ส่งผลอย่างไรต่อการ train CNN",
+        options: [
+          "ลด parameter ใน model ลงกว่าครึ่ง",
+          "ทำให้ training เสถียรขึ้นและสามารถใช้ learning rate สูงขึ้นได้",
+          "เพิ่ม accuracy ของ test set โดยตรงโดยไม่ต้องปรับ hyperparameter",
+          "แทนที่ activation function ทั้งหมด"
+        ],
+        correctIndex: 1,
+        explanation: "Batch Normalization ปรับสเกลข้อมูลในแต่ละมินิแบตช์ให้มี Mean=0 และ Variance=1 ทำให้กระบวนการเรียนรู้เสถียรขึ้น ลดปัญหา Gradient หาย และสามารถตั้งค่า Learning Rate ให้สูงขึ้นเพื่อเร่งการเรียนรู้ได้"
+      },
+      {
+        id: "ins_ch9_q6",
+        chapter: 9,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 9 (CNN)",
+        question: "6. Overfitting ใน CNN มักเกิดจากสาเหตุใด",
+        options: [
+          "Model ซับซ้อนเกินไปจนจำ noise ใน training data",
+          "จำนวน epoch น้อยเกินไป",
+          "Model มี parameter น้อยเกินไปสำหรับข้อมูล",
+          "Learning rate ต่ำเกินไปจนไม่ converge"
+        ],
+        correctIndex: 0,
+        explanation: "Overfitting เกิดขึ้นเมื่อโครงข่ายมีความซับซ้อน (มีพารามิเตอร์หรือเลเยอร์มากเกินไป) จนจดจำสัญญาณรบกวนในภาพฝึกสอนแทนที่จะเรียนรู้ลักษณะทั่วไป"
+      },
+      {
+        id: "ins_ch9_q7",
+        chapter: 9,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 9 (CNN)",
+        question: "7. ถ้าต้องการให้ CNN จำแนกภาพ 10 class (เช่น ตัวเลข 0–9) Output layer ควรมีโครงสร้างอย่างไร",
+        options: [
+          "10 neurons พร้อม ReLU activation",
+          "10 neurons พร้อม Softmax activation",
+          "100 neurons พร้อม Tanh activation",
+          "1 neuron พร้อม Sigmoid activation"
+        ],
+        correctIndex: 1,
+        explanation: "งานจำแนกภาพ 10 คลาส ต้องใช้นิวรอนใน Output Layer จำนวน 10 ตัว ร่วมกับฟังก์ชัน Softmax เพื่อแปลงเป็นคะแนนความน่าจะเป็นของแต่ละคลาสที่รวมกันได้ 1"
+      },
+      {
+        id: "ins_ch9_q8",
+        chapter: 9,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 9 (CNN)",
+        question: "8. Fully Connected Layer ที่ท้าย CNN ทำหน้าที่ใด",
+        options: [
+          "ปรับค่า pixel ให้อยู่ในช่วง 0–1",
+          "สกัด edge และ texture จากภาพต้นฉบับ",
+          "ลดความซับซ้อนของ feature map ด้วย convolution",
+          "แมป feature ที่สกัดได้ไปยัง output class (classification)"
+        ],
+        correctIndex: 3,
+        explanation: "Fully Connected Layer นำเวกเตอร์ของฟีเจอร์ระดับสูงที่ถูกสกัดมาจากเลเยอร์ก่อนหน้า มาเชื่อมโยงและคำนวณเพื่อตัดสินใจจัดกลุ่มเข้าสู่แต่ละคลาส (Classification)"
+      },
+      {
+        id: "ins_ch9_q9",
+        chapter: 9,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 9 (CNN)",
+        question: "9. ข้อใดอธิบาย Convolution Layer ใน CNN ได้ถูกต้องที่สุด",
+        options: [
+          "เชื่อม neuron ทุกตัวใน layer ก่อนหน้าเข้ากับ layer ถัดไป",
+          "ลด dimension ของข้อมูลโดยการเฉลี่ยค่า pixel",
+          "เลื่อน filter ขนาดเล็กผ่านภาพเพื่อสกัด local feature",
+          "แปลง feature map ให้เป็น probability ของแต่ละ class"
+        ],
+        correctIndex: 2,
+        explanation: "Convolution Layer ใช้ Filter/Kernel ขนาดเล็กเลื่อนกวาดผ่านแต่ละส่วนของภาพเพื่อคำนวณและสกัดคุณลักษณะเฉพาะบริเวณ (Local Features เช่น ขอบ มุม และลวดลาย)"
+      }
+    ],
+
+    // ------------------------------------------------------------
+    // CH10: AI Ethics & Governance (9 Questions)
+    // ------------------------------------------------------------
+    ch10: [
+      {
+        id: "ins_ch10_q1",
+        chapter: 10,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 10 (Ethics)",
+        question: "1. หน่วยงานใดจัดทำคู่มือการประเมินผลกระทบทางจริยธรรมปัญญาประดิษฐ์ฉบับภาษาไทย เพื่อให้องค์กรไทยนำหลักการของ UNESCO ไปปฏิบัติได้จริง",
+        options: [
+          "สำนักงานพัฒนาธุรกรรมทางอิเล็กทรอนิกส์ (สพธอ.) ร่วมกับศูนย์ธรรมาภิบาลปัญญาประดิษฐ์ (AIGPC)",
+          "สถาบันมาตรฐานและเทคโนโลยีแห่งชาติสหรัฐอเมริกา (NIST)",
+          "องค์การการศึกษา วิทยาศาสตร์ และวัฒนธรรมแห่งสหประชาชาติ (UNESCO)",
+          "องค์การระหว่างประเทศว่าด้วยการมาตรฐาน (ISO/IEC)"
+        ],
+        correctIndex: 0,
+        explanation: "สำนักงานพัฒนาธุรกรรมทางอิเล็กทรอนิกส์ (สพธอ. หรือ ETDA) ร่วมกับ ศูนย์ธรรมาภิบาลปัญญาประดิษฐ์ (AIGPC) เป็นผู้จัดทำคู่มือการประเมินผลกระทบทางจริยธรรมปัญญาประดิษฐ์ (EIA) ฉบับภาษาไทย"
+      },
+      {
+        id: "ins_ch10_q2",
+        chapter: 10,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 10 (Ethics)",
+        question: "2. ข้อใดเรียงลำดับขั้นตอนของกระบวนการประเมินผลกระทบทางจริยธรรมปัญญาประดิษฐ์ (EIA) ได้ถูกต้อง",
+        options: [
+          "การกำหนดขอบเขตการประเมิน → การวิเคราะห์ผลกระทบ → การประเมินตามหลักการด้านจริยธรรม",
+          "การกำหนดขอบเขตการประเมิน → การประเมินตามหลักการด้านจริยธรรม → การวิเคราะห์ผลกระทบ",
+          "การวิเคราะห์ผลกระทบ → การกำหนดขอบเขตการประเมิน → การประเมินตามหลักการด้านจริยธรรม",
+          "การประเมินตามหลักการด้านจริยธรรม → การวิเคราะห์ผลกระทบ → การกำหนดขอบเขตการประเมิน"
+        ],
+        correctIndex: 1,
+        explanation: "กระบวนการ EIA แบ่งออกเป็น 3 ส่วนตามลำดับ: 1. การกำหนดขอบเขตการประเมิน (Scoping Questions) → 2. การประเมินตามหลักการด้านจริยธรรม (Principles-Based Questions) → 3. การวิเคราะห์ผลกระทบ (Impact Mapping)"
+      },
+      {
+        id: "ins_ch10_q3",
+        chapter: 10,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 10 (Ethics)",
+        question: "3. ข้อใดเป็นแนวปฏิบัติที่ช่วยให้การพัฒนาปัญญาประดิษฐ์มีความยั่งยืน",
+        options: [
+          "ใช้การเรียนรู้แบบถ่ายโอน (Transfer Learning) และลดขนาดแบบจำลองด้วย Quantization หรือ Pruning",
+          "ฝึกแบบจำลองใหม่ตั้งแต่ต้นทุกครั้ง เพื่อให้ได้ผลลัพธ์ที่เหมาะกับงานมากที่สุด",
+          "จัดเก็บข้อมูลฝึกไว้ทั้งหมดโดยไม่ลบ เพื่อให้ฝึกซ้ำได้ตลอดเวลา",
+          "เพิ่มจำนวนรอบการฝึกให้มากที่สุดเท่าที่ทรัพยากรจะอำนวย"
+        ],
+        correctIndex: 0,
+        explanation: "การพัฒนา AI อย่างยั่งยืน (ลดการใช้ไฟฟ้าและลดคาร์บอนฟุตพริ้นท์) ทำได้โดยนำ Transfer Learning มาใช้ต่อยอด และลดขนาดโมเดลด้วยเทคนิค Quantization หรือ Pruning"
+      },
+      {
+        id: "ins_ch10_q4",
+        chapter: 10,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 10 (Ethics)",
+        question: "4. ข้อใดกล่าว \"ไม่ถูกต้อง\" เกี่ยวกับการนำหลักการจริยธรรมปัญญาประดิษฐ์ไปปฏิบัติ",
+        options: [
+          "ความยั่งยืนครอบคลุมทั้งการใช้พลังงานของระบบและผลกระทบต่อโครงสร้างการจ้างงาน",
+          "ความโปร่งใสคือการเปิดเผยว่าระบบทำงานอย่างไร ส่วนความสามารถในการอธิบายคือการอธิบายเหตุผลของผลลัพธ์ในกรณีเฉพาะ",
+          "เมื่อแบบจำลองมีค่าความแม่นยำโดยรวมสูงแล้ว ถือว่าระบบมีความเป็นธรรมเพียงพอ",
+          "ความรับผิดชอบต่อผลการตัดสินใจของระบบต้องผูกพันกับมนุษย์เสมอ"
+        ],
+        correctIndex: 2,
+        explanation: "ข้อความที่ไม่ถูกต้องคือ 'เมื่อมีค่าความแม่นยำสูงแล้วถือว่ามีความเป็นธรรมเพียงพอ' เพราะค่าความแม่นยำรวมที่สูงอาจปิดบังความผิดพลาดและอคติที่มีต่อกลุ่มคนกลุ่มน้อยหรือกลุ่มเปราะบาง (Subgroups) จึงต้องประเมินความเป็นธรรมแยกกลุ่มเสมอ"
+      },
+      {
+        id: "ins_ch10_q5",
+        chapter: 10,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 10 (Ethics)",
+        question: "5. ข้อใดกล่าวถูกต้องเกี่ยวกับหลักการจริยธรรมปัญญาประดิษฐ์ 10 มิติ ตามแนวทางของ UNESCO",
+        options: [
+          "มิติที่ 1 และมิติที่ 10 ใช้ในขั้นกำหนดขอบเขตการประเมิน ส่วนอีก 8 มิติใช้ในขั้นประเมินตามหลักการและวิเคราะห์ผลกระทบ",
+          "หลักการนี้ครอบคลุมเฉพาะประเด็นทางเทคนิคของแบบจำลอง ไม่รวมด้านสังคมและสิ่งแวดล้อม",
+          "ทั้ง 10 มิติถูกนำไปใช้ในขั้นตอนเดียวกันของกระบวนการประเมิน",
+          "หลักการนี้มีผลบังคับใช้ทางกฎหมายโดยตรงกับประเทศสมาชิกทั้ง 194 ประเทศ"
+        ],
+        correctIndex: 0,
+        explanation: "ตามกรอบของ UNESCO มิติที่ 1 (ความสมเหตุสมผลและไม่ก่ออันตราย) และมิติที่ 10 (การมีส่วนร่วมหลากหลายภาคส่วน) จะถูกนำมาประเมินตั้งแต่ขั้นกำหนดขอบเขต (Scoping) ส่วนอีก 8 มิติจะประเมินในขั้นตอนถัดไป"
+      },
+      {
+        id: "ins_ch10_q6",
+        chapter: 10,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 10 (Ethics)",
+        question: "6. เมื่อระบบปัญญาประดิษฐ์ตัดสินใจผิดพลาดจนเกิดความเสียหาย ข้อใดอธิบายการกำหนดความรับผิดชอบได้ถูกต้องที่สุด",
+        options: [
+          "ความรับผิดชอบต้องผูกพันกับมนุษย์เสมอ และต้องกำหนดขอบเขตของแต่ละฝ่ายให้ชัดเจนตั้งแต่เริ่มโครงการ",
+          "ระบบปัญญาประดิษฐ์เป็นผู้รับผิดชอบ เพราะเป็นผู้ตัดสินใจโดยตรง",
+          "ผู้ใช้งานต้องรับผิดชอบเสมอ เพราะเป็นผู้ตัดสินใจขั้นสุดท้าย",
+          "ผู้พัฒนาแบบจำลองต้องรับผิดชอบแต่เพียงผู้เดียว เพราะเป็นผู้สร้างระบบขึ้นมา"
+        ],
+        correctIndex: 0,
+        explanation: "AI ไม่มีสถานะบุคคลตามกฎหมาย ดังนั้นความรับผิดชอบต้องผูกพันกับมนุษย์หรือนิติบุคคลเสมอ และต้องมีการกำหนดขอบเขตความรับผิดชอบของแต่ละฝ่าย (ผู้พัฒนา, ผู้ติดตั้งระบบ, องค์กรผู้ใช้งาน) ให้ชัดเจน"
+      },
+      {
+        id: "ins_ch10_q7",
+        chapter: 10,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 10 (Ethics)",
+        question: "7. เหตุใดจึงต้องคำนึงถึงจริยธรรมในการนำปัญญาประดิษฐ์มาใช้งาน",
+        options: [
+          "เพราะระบบปัญญาประดิษฐ์ยังมีความแม่นยำต่ำกว่ามนุษย์ในทุกประเภทงาน",
+          "เพราะการตัดสินใจของระบบอาจกระทบต่อสิทธิ โอกาส และความเป็นอยู่ของบุคคล โดยเฉพาะกลุ่มเปราะบาง",
+          "เพราะกฎหมายกำหนดให้ระบบปัญญาประดิษฐ์ทุกระบบต้องผ่านการรับรองก่อนนำไปใช้งาน",
+          "เพราะระบบปัญญาประดิษฐ์มีต้นทุนการพัฒนาสูง จึงต้องใช้ให้คุ้มค่าที่สุด"
+        ],
+        correctIndex: 1,
+        explanation: "เนื่องจากการตัดสินใจของ AI เข้ามามีผลโดยตรงต่อสิทธิขั้นพื้นฐาน เสรีภาพ โอกาสทางการศึกษา การรักษาพยาบาล และการเงินของมนุษย์ หากระบบมีอคติจะส่งผลกระทบอย่างรุนแรงต่อประชาชนโดยเฉพาะกลุ่มเปราะบาง"
+      },
+      {
+        id: "ins_ch10_q8",
+        chapter: 10,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 10 (Ethics)",
+        question: "8. ระบบปัญญาประดิษฐ์สำหรับคัดเลือกผู้สมัครงานถูกฝึกด้วยข้อมูลการรับสมัครย้อนหลัง 10 ปี ซึ่งผู้ได้รับคัดเลือกส่วนใหญ่เป็นเพศชาย ทำให้ระบบให้คะแนนผู้สมัครเพศหญิงต่ำกว่า ความลำเอียงในกรณีนี้ตรงกับข้อใดมากที่สุด",
+        options: [
+          "ลำเอียงจากข้อมูล (Data Bias)",
+          "ลำเอียงจากข้อมูลสะท้อนกลับ (Feedback Bias)",
+          "ลำเอียงจากการเก็บข้อมูล (Collection Bias)",
+          "ลำเอียงจากขั้นตอนวิธี (Algorithm Bias)"
+        ],
+        correctIndex: 0,
+        explanation: "จัดเป็น Data Bias (ความลำเอียงจากข้อมูลในอดีต) เพราะชุดข้อมูลที่นำมาฝึกสะท้อนอคติเดิมของโครงสร้างสังคมในอดีต ทำให้โมเดลเรียนรู้และผลิตซ้ำความลำเอียงนั้นออกมา"
+      },
+      {
+        id: "ins_ch10_q9",
+        chapter: 10,
+        chapterTitle: "ควิซอาจารย์ • บทที่ 10 (Ethics)",
+        question: "9. เมื่อองค์กรนำระบบปัญญาประดิษฐ์มาใช้ตัดสินใจในเรื่องที่กระทบต่อสิทธิของบุคคล กลุ่มใดต้องได้รับแจ้งว่ามีการใช้ปัญญาประดิษฐ์เป็นลำดับแรก",
+        options: [
+          "ผู้ถือหุ้นและนักลงทุนขององค์กร",
+          "ทีมพัฒนาแบบจำลองภายในองค์กร",
+          "ผู้ได้รับผลกระทบจากการตัดสินใจของระบบ",
+          "หน่วยงานกำกับดูแลระดับประเทศ"
+        ],
+        correctIndex: 2,
+        explanation: "ตามหลักความโปร่งใส (Transparency) บุคคลที่ได้รับผลกระทบโดยตรงจากการตัดสินใจของ AI จะต้องได้รับแจ้งว่ามีการใช้ AI เป็นลำดับแรก เพื่อให้พวกเขาทราบและสามารถใช้สิทธิในการโต้แย้งหรือขอให้มนุษย์เข้ามาทบทวนได้"
+      }
+    ]
+  }
 };
+
+// Flatten all instructor questions into a single array
+QUIZ_DATABASE.allInstructorQuestions = [
+  ...QUIZ_DATABASE.instructorQuizzes.ch6,
+  ...QUIZ_DATABASE.instructorQuizzes.ch7,
+  ...QUIZ_DATABASE.instructorQuizzes.ch8,
+  ...QUIZ_DATABASE.instructorQuizzes.ch9,
+  ...QUIZ_DATABASE.instructorQuizzes.ch10
+];
 
 // Helper: All questions flattened
 QUIZ_DATABASE.allQuestions = [

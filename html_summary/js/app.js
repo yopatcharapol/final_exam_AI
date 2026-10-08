@@ -131,6 +131,29 @@ class QuizEngine {
           <span class="question-status-badge" id="status-badge-${qIndex}"></span>
         </div>
         <div class="question-text">${q.question}</div>
+        ${q.hasCustomDiagram ? `
+          <div class="convolution-diagram-container">
+            <div class="matrix-block">
+              <div class="matrix-grid-5x5">
+                <div class="m-cell cell-active">1</div><div class="m-cell cell-active">2</div><div class="m-cell cell-active">3</div><div class="m-cell cell-dim">0</div><div class="m-cell cell-dim">1</div>
+                <div class="m-cell cell-active">4</div><div class="m-cell cell-active">0</div><div class="m-cell cell-active">1</div><div class="m-cell cell-dim">1</div><div class="m-cell cell-dim">2</div>
+                <div class="m-cell cell-active">7</div><div class="m-cell cell-active">1</div><div class="m-cell cell-active">9</div><div class="m-cell cell-dim">2</div><div class="m-cell cell-dim">3</div>
+                <div class="m-cell cell-dim">2</div><div class="m-cell cell-dim">3</div><div class="m-cell cell-dim">4</div><div class="m-cell cell-dim">3</div><div class="m-cell cell-dim">4</div>
+                <div class="m-cell cell-dim">1</div><div class="m-cell cell-dim">2</div><div class="m-cell cell-dim">3</div><div class="m-cell cell-dim">4</div><div class="m-cell cell-dim">5</div>
+              </div>
+              <div class="matrix-label">Input (5&times;5)</div>
+            </div>
+            <div class="diagram-symbol">&times;</div>
+            <div class="matrix-block">
+              <div class="matrix-grid-3x3">
+                <div class="m-cell cell-filter-orange">1</div><div class="m-cell cell-filter-white">0</div><div class="m-cell cell-filter-blue">-1</div>
+                <div class="m-cell cell-filter-orange">1</div><div class="m-cell cell-filter-white">0</div><div class="m-cell cell-filter-blue">-1</div>
+                <div class="m-cell cell-filter-orange">1</div><div class="m-cell cell-filter-white">0</div><div class="m-cell cell-filter-blue">-1</div>
+              </div>
+              <div class="matrix-label">Filter (3&times;3)</div>
+            </div>
+          </div>
+        ` : ''}
         <div class="options-group">
           ${q.options.map((opt, optIndex) => `
             <button class="option-btn" data-qindex="${qIndex}" data-optindex="${optIndex}">
